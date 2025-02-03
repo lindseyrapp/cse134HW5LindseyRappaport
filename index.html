@@ -42,8 +42,8 @@
         </section>
         <!-- Info sections -->
         <section>
+            <p></p>
             <table align="center" border="0" cellpadding="10">
-                <p></p>
                 <caption>My Professional Information:</caption>
                 <colgroup>
                     <col class="bio-col"> <!-- Bio/About Me -->
@@ -70,7 +70,7 @@
                 <tbody>
                     <tr>
                         <td>
-                            <p>Bio goes here... I'm a computer science student at <abbr title="University of California, San Diego">UCSD</abbr>...</p>
+                            Bio goes here... I'm a computer science student at <abbr title="University of California, San Diego">UCSD</abbr>...
                         </td>
                         <td>
                             <education-info>
@@ -88,8 +88,8 @@
                         </td>
                         <td>
                             <ul id="skills-list">
-                                <!-- Template will populate here, just using <p> for now until I add JS -->
-                                <p>Soft skills will be listed here...</p>
+                                <!-- Template will populate here, just using text for now until I add JS -->
+                                Soft skills will be listed here...
                             </ul>
                             <template id="skill-template">
                                 <li class="skill-item">Skill Name</li>
@@ -101,9 +101,9 @@
             <!-- Friendly aside section after Experience -->
             <aside>
                 <h3>Want to know more?</h3>
-                <p>If you're curious about my work or have any questions, feel free to explore my <a
+                If you're curious about my work or have any questions, feel free to explore my <a
                         href="projects.html">projects</a> or <a href="contact.html">reach out</a>! I’m always happy to
-                    chat.</p>
+                    chat.
             </aside>
         </section>
         <!-- Custom hello world element -->
@@ -112,13 +112,7 @@
         <canvas id="welcomeCanvas" width="500" height="200"></canvas>
     </main>
     <hr>
-    <footer>
-        <p><em>&copy; 2025 Lindsey Rappaport</em></p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="40" viewBox="0 0 100 40">
-            <text x="50%" y="50%" font-family="Arial" font-size="24" text-anchor="middle" alignment-baseline="middle"
-                fill="black">LR</text>
-        </svg>
-    </footer>
+
     <script>
         const canvas = document.getElementById("welcomeCanvas");
         const ctx = canvas.getContext("2d");
@@ -152,5 +146,11 @@
         <p>Some features of this site may not work as expected without JavaScript.</p>
     </noscript>
 </body>
-
+<footer>
+    <p><em>&copy; 2025 Lindsey Rappaport</em></p>
+    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="40" viewBox="0 0 100 40">
+        <text x="50%" y="50%" font-family="Arial" font-size="24" text-anchor="middle" alignment-baseline="middle"
+            fill="black">LR</text>
+    </svg>
+</footer>
 </html>
