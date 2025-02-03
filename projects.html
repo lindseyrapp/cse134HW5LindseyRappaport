@@ -5,13 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects</title>
 </head>
-<body>
+<body style="text-align: center;">
     <nav>
         <a href="contact.html">Contact</a> |
         <a href="index.html">Home</a> |
         <a href="projects.html">Projects</a>
     </nav>
+    <hr>
     <h1>Projects</h1>
+    <section>
+        <search>
+            <label for="project-search">Search for a project:</label>
+            <input type="search" id="project-search" name="search" placeholder="Type project name..." aria-label="Search projects">
+        </search>
+    </section>
+    
+    <section>
+        <h2>Featured Projects:</h2>
+        <hr>
+        <article>
+        <div class="project-title"></div>
+            <h3>Group Project: <a href="https://github.com/cse110-sp24-group12/cse110-sp24-group12?tab=readme-ov-file" target="_blank">Developer Journal</a></h3>
+            <p><dfn title="Project setting">CSE 110, Spring 2024 UCSD</dfn></p>
+        </div>
+        <div class="project-role"></div>
+            <h3>Role: Co-Leader</h3>
+        </div>
+        <div class="project-overview"></div>
+            <p>Description of project here...</p>
+        </div>
+        <figure>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/bcrQLURp_nw?si=s4hvcZnzuA6UG7Af" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <figcaption>Video Demo: A walk-through of our project features and functionality.</figcaption>
+        </figure>
+        <!-- Technologies Used Section -->
+        <div class="technologies">
+            <h3>Technologies and Tools</h3>
+            <dl>
+                <dt><pre><span title="Tech 1">Tech 1</span></pre></dt>
+                <dd>Describe use of tech 1 here... <code>possible code example</code></dd>
+                <dt><pre><span title="Tech 2">Tech 2</span></pre></dt>
+                <dd>Describe use of tech 2 here...<code>possible code example</code></dd>
+                <dt><pre><span title="Tech 3">Tech 3</span></pre></dt>
+                <dd>Describe use of tech 3 here...<code>possible code example</code></dd>
+            </dl>
+        </div>
+
+        <!-- Responsibilities Section -->
+        <div class="responsibilities">
+            <h3>My Responsibilities</h3>
+            <ol>
+                <li>Describe responsibility 1</li>
+                <li>Describe responsibility 2</li>
+                <li>Describe responsibility 3</li>
+            </ol>
+        </div>
+        </article>
+        
+        <hr>
+        <article>
+            <div class="project-title">
+                <hgroup>
+                    <h3>Project: Project 2</h3>
+                    <p><dfn title="Project setting">Personal project</dfn></p>
+                </hgroup>
+            </div>
+            
+            <div class="project-role">
+                <h3>Role: <del>Previous role</del> <ins>Current role</ins></h3>
+            </div>
+            
+            <div class="project-overview">
+                <p>Description of project here...</p>
+                
+                <!-- Audio demo -->
+                <h4>Audio Demo</h4>
+                <audio controls>
+                    <source src="demo-audio.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                
+                <!-- Video demo -->
+                <h4>Video Demo</h4>
+                <video controls width="320" height="240">
+                    <source src="demo-video.mp4" type="video/mp4">
+                    <source src="demo-video.ogg" type="video/ogg">
+                    Your browser does not support the video element.
+                </video>
+            </div>
+        </article>
+        
+    </section>
 </body>
 </html>
 

@@ -1,16 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Will add a real CSS file later -->
 </head>
-<body>
+
+<body style="text-align: center;">
+    <!-- Nav bar -->
     <nav>
         <a href="contact.html">Contact</a> |
         <a href="index.html">Home</a> |
         <a href="projects.html">Projects</a>
     </nav>
-    <h1>Lindsey Rappaport</h1>
+    <hr>
+    <!-- Main content -->
+    <main>
+        <header>
+            <h1>Lindsey Rappaport</h1>
+            <!-- Inspirational Quote -->
+            <section>
+                <blockquote>
+                    “Don’t let anyone rob you of your imagination, creativity, or curiosity. It’s your place in the
+                    world; it’s your life. Go on and do all you can with it, and make it the life you want to live.”
+                    <footer>– Mae Jemison, first female African American astronaut in space</footer>
+                    <cite><span hidden>Source: <a
+                                href="https://interestingengineering.com/culture/25-quotes-from-powerful-women-in-stem-who-will-inspire-you"
+                                target="_blank">Interesting Engineering</a></span></cite>
+                </blockquote>
+            </section>
+            <!-- Picture tag to add different photo sizes later for different screen sizes -->
+            <picture>
+                <img src="headshot.jpg" alt="Lindsey Rappaport's Photo" width="200">
+            </picture>
+        </header>
+        <!-- Resume download -->
+        <section>
+            <a href="LindseyRappaportResume2024.pdf" download> Download Resume</a>
+        </section>
+        <!-- Info sections -->
+        <section>
+            <table align="center" border="0" cellpadding="10">
+                <p></p>
+                <caption>My Professional Information:</caption>
+                <colgroup>
+                    <col class="bio-col"> <!-- Bio/About Me -->
+                    <col class="education-col"> <!-- Education -->
+                    <col class="work-experience-col"> <!-- Work Experience -->
+                    <col class="soft-skills-col"> <!-- Soft Skills -->
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>
+                            <h2>Bio/About Me</h2>
+                        </th>
+                        <th>
+                            <h2>Education</h2>
+                        </th>
+                        <th>
+                            <h2>Work Experience</h2>
+                        </th>
+                        <th>
+                            <h2>Soft Skills</h2>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <p>Bio goes here... I'm a computer science student at <abbr title="University of California, San Diego">UCSD</abbr>...</p>
+                        </td>
+                        <td>
+                            <education-info>
+                                <ul>
+                                    <li>Education 1 goes here</li>
+                                    <li>Education 2 goes here</li>
+                                </ul>
+                            </education-info>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Work experience 1</li>
+                                <li>Work experience 2</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul id="skills-list">
+                                <!-- Template will populate here, just using <p> for now until I add JS -->
+                                <p>Soft skills will be listed here...</p>
+                            </ul>
+                            <template id="skill-template">
+                                <li class="skill-item">Skill Name</li>
+                            </template>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Friendly aside section after Experience -->
+            <aside>
+                <h3>Want to know more?</h3>
+                <p>If you're curious about my work or have any questions, feel free to explore my <a
+                        href="projects.html">projects</a> or <a href="contact.html">reach out</a>! I’m always happy to
+                    chat.</p>
+            </aside>
+        </section>
+        <!-- Custom hello world element -->
+        <hello-world></hello-world>
+        <!-- Interactive welcome message -->
+        <canvas id="welcomeCanvas" width="500" height="200"></canvas>
+    </main>
+    <hr>
+    <footer>
+        <p><em>&copy; 2025 Lindsey Rappaport</em></p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="40" viewBox="0 0 100 40">
+            <text x="50%" y="50%" font-family="Arial" font-size="24" text-anchor="middle" alignment-baseline="middle"
+                fill="black">LR</text>
+        </svg>
+    </footer>
+    <script>
+        const canvas = document.getElementById("welcomeCanvas");
+        const ctx = canvas.getContext("2d");
+        const message = "Welcome to my site!";
+        let index = 0;
+        function drawText() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);  // Clear canvas
+            ctx.fillText(message.substring(0, index++), canvas.width / 4, canvas.height / 2);
+            if (index <= message.length) setTimeout(drawText, 100);
+            else setTimeout(() => ctx.clearRect(0, 0, canvas.width, canvas.height), 2000);  // Clear after 2 seconds
+        }
+        ctx.font = "30px Arial";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        drawText();
+    </script>
+    <!-- Script to define the custom element -->
+    <script>
+        // Custom hello world element
+        class HelloWorld extends HTMLElement {
+            constructor() {
+                super();
+                // When element is created, log "Hello world!" to the console
+                console.log("Hello world!");
+            }
+        }
+        customElements.define('hello-world', HelloWorld);
+    </script>
+    <noscript>
+        <p><strong>JavaScript is disabled or not supported in your browser.</strong></p>
+        <p>Some features of this site may not work as expected without JavaScript.</p>
+    </noscript>
 </body>
+
 </html>
