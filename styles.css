@@ -1,0 +1,283 @@
+/* Import custom font */
+@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+
+/* Global Styles */
+:root {
+    --primary-color: #2C3E50;
+    --secondary-color: #ECF0F1;
+    --accent-color: #2180bf;
+    --text-color: #333;
+    --font-family: 'Italiana', serif;
+    --sans-serif-font: 'Arial', sans-serif;
+}
+body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    font-size: 2vw;
+}
+
+h1, h3 {
+    font-size: 3vw;
+    text-align: center;
+    margin: 0;
+}
+
+p {
+    font-size: 2vw;
+    text-align: center;
+    max-width: 80%;
+}
+
+article {
+    padding: 5vh 2vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color); 
+    font-weight: bold;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #D9D9D9;
+    padding: 1vh 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex; /* Make nav a flex container */
+    justify-content: space-around; /* Evenly space out the links */
+    align-items: center; /* Center links vertically */
+    width: 100%;
+    height: auto;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 3vw;
+    font-weight: bold;
+    padding: 0.5vw 1vw;
+    /* CSS transition */
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    transform: scale(1);
+}
+
+nav a:hover {
+    color: var(--accent-color); 
+    /* CSS Transform */
+    transform: scale(1.1);
+}
+
+/* Bold the active link */
+nav a.active {
+    font-weight: bolder;
+    color: #135f92; 
+    font-size: 3.5vw;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content horizontally */
+    padding: 5vh 2vw;
+    max-width: 100%;
+}
+
+main header {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the header content */
+    margin-bottom: 2vh;
+}
+
+main header h1 {
+    font-size: 4vw;
+    animation: fadeIn 1s ease-out; 
+}
+
+main header p {
+    font-size: 3vw;
+    max-width: 80%;
+    text-align: center;
+}
+
+main table {
+    width: 100%;
+    max-width: 90%; /* Set max width for large screens */
+    margin: 1vh 0;
+    font-size: 2vw;
+}
+
+main section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+main table th, main table td {
+    padding: 2vh 3vw;
+    text-align: center;
+}
+
+main table th {
+    color: #000000;
+    font-weight: bold;
+}
+
+main table td {
+    color: #333;
+    background-color: var(--secondary-color);
+}
+
+table caption {
+    font-weight: bold;
+    background-color: var(--secondary-color);
+}
+
+
+
+/* Download Resume Button */
+a.download-btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: var(--accent-color); /* Use your accent color */
+    color: var(--secondary-color); /* Light text for contrast */
+    font-size: 2.5vw;
+    font-weight: bold;
+    padding: 1.5vw 3vw;
+    border-radius: 5px; /* Slightly rounded corners */
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+}
+
+a.download-btn:hover {
+    background-color: #135f92; /* Darker shade from accent color on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover for more impact */
+}
+
+a.download-btn:active {
+    background-color: #114165; /* Even darker shade when clicked */
+}
+
+/* Footer Styles */
+footer {
+    padding: 2vh 2vw;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+}
+
+footer svg {
+    margin-top: 5px;
+}
+
+.headshot {
+    max-width: 30vw; 
+    width: 100%; 
+    height: auto; 
+}
+
+/* CSS Animation: Fade-in effect for name */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 1024px) {
+    body {
+        font-size: 2.5vw;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        font-size: 5vw;
+        padding: 2vh 4vw;
+    }
+
+    main header h1 {
+        font-size: 6vw;
+    }
+
+    main header p {
+        font-size: 4vw;
+    }
+
+    .headshot {
+        max-width: 40vw;
+    }
+
+    main table {
+        font-size: 2vw;
+    }
+
+    a.download-btn {
+        font-size: 3vw;
+        padding: 2vh 4vw;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 3vw;
+    }
+
+    nav a {
+        font-size: 6vw;
+        padding: 2vh 5vw;
+    }
+
+    main header h1 {
+        font-size: 8vw;
+    }
+
+    main header p {
+        font-size: 5vw;
+    }
+
+    .headshot {
+        max-width: 50vw;
+    }
+
+    main table {
+        font-size: 3vw;
+    }
+
+    a.download-btn {
+        font-size: 4vw;
+        padding: 3vh 5vw;
+    }
+}
+
+
+
+/* DEBUG
+* {
+    border: 1px solid red;
+}
+*/

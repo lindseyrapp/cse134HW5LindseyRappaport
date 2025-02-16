@@ -11,11 +11,10 @@
 <body style="text-align: center;">
     <!-- Nav bar -->
     <nav>
-        <a href="contact.html">Contact</a> |
-        <a href="index.html">Home</a> |
-        <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+            <a href="index.html" class="active">Home</a>
+            <a href="projects.html">Projects</a>
     </nav>
-    <hr>
     <!-- Main content -->
     <main>
         <header>
@@ -33,12 +32,16 @@
             </section>
             <!-- Picture tag to add different photo sizes later for different screen sizes -->
             <picture>
-                <img src="headshot.jpg" alt="Lindsey Rappaport's Photo" width="200">
+                <source srcset="SmallHeadshot.jpg" media="(max-width: 600px)">
+                <source srcset="MediumHeadshot.jpg" media="(max-width: 1024px)">
+                <source srcset="LargeHeadshot.jpg" media="(min-width: 1025px)">
+                <img src="LargeHeadshot.jpg" alt="Lindsey Rappaport's Photo" class="headshot">
             </picture>
+            
         </header>
         <!-- Resume download -->
         <section>
-            <a href="LindseyRappaportResume2024.pdf" download> Download Resume</a>
+            <a href="LindseyRappaportResume2024.pdf" download class="download-btn"> Download Resume</a>
         </section>
         <!-- Info sections -->
         <section>
@@ -113,8 +116,7 @@
         <!-- Interactive welcome message -->
         <canvas id="welcomeCanvas" width="500" height="200"></canvas>
     </main>
-    <hr>
-
+ 
     <script>
         const canvas = document.getElementById("welcomeCanvas");
         const ctx = canvas.getContext("2d");
