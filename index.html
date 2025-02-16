@@ -18,6 +18,7 @@
     <!-- Main content -->
     <main>
         <header>
+            <canvas id="welcomeCanvas" width="500" height="200"></canvas>
             <h1>Lindsey Rappaport</h1>
             <!-- Inspirational Quote -->
             <section>
@@ -114,25 +115,50 @@
         <!-- Custom hello world element -->
         <hello-world></hello-world>
         <!-- Interactive welcome message -->
-        <canvas id="welcomeCanvas" width="500" height="200"></canvas>
+        
     </main>
  
     <script>
         const canvas = document.getElementById("welcomeCanvas");
         const ctx = canvas.getContext("2d");
-        const message = "Welcome to my site!";
+        const message = "Welcome to my portfolio! I am...";
         let index = 0;
+        let colors = ["#2180bf", "#2C3E50", "#e74c3c", "#8e44ad", "#f39c12"];  // Array of colors
+        let colorIndex = 0;  // Track color index
+        let bounceY = 0;  // Bounce effect control
+        
+        // Function to draw the animated text
         function drawText() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);  // Clear canvas
-            ctx.fillText(message.substring(0, index++), canvas.width / 4, canvas.height / 2);
-            if (index <= message.length) setTimeout(drawText, 100);
-            else setTimeout(() => ctx.clearRect(0, 0, canvas.width, canvas.height), 2000);  // Clear after 2 seconds
+            ctx.clearRect(0, 0, canvas.width, canvas.height); 
+            ctx.font = "30px 'Italiana', serif";  
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            
+            // Set the color from the colors array
+            ctx.fillStyle = colors[colorIndex % colors.length];
+            
+            // Apply a bounce effect on the Y position for fun
+            ctx.save();
+            ctx.translate(0, Math.sin(bounceY) * 5); 
+            ctx.fillText(message.substring(0, index++), canvas.width / 2, canvas.height / 2);
+            ctx.restore();
+            
+            if (index <= message.length) {
+                bounceY += 0.05; 
+                setTimeout(drawText, 150); 
+            } else {
+                // Change color after the text has fully appeared
+                colorIndex++;
+                index = 0; 
+                setTimeout(drawText, 500); 
+            }
         }
-        ctx.font = "30px Arial";
-        ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
+    
         drawText();
     </script>
+    
+    
+    
     <!-- Script to define the custom element -->
     <script>
         // Custom hello world element
