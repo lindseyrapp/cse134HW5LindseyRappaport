@@ -72,6 +72,23 @@ figcaption {
     color: #333;
 }
 
+/* Different gradients for each section */
+.bio-col, .bio-col th, .bio-col td {
+    background: linear-gradient(135deg, #c3deef, #f0f6f8);
+}
+
+.education-col, .education-col th, .education-col td {
+    background: linear-gradient(135deg, #95cff4, #edf6fb);
+}
+
+.work-experience-col, .work-experience-col th, .work-experience-col td {
+    background: linear-gradient(135deg, #c3deef, #f0f6f8);
+}
+
+.soft-skills-col, .soft-skills-col th, .soft-skills-col td {
+    background: linear-gradient(135deg, #95cff4, #edf6fb);
+}
+
 a {
     color: var(--accent-color);
     text-decoration: none;
@@ -177,8 +194,8 @@ main table td {
 }
 
 table caption {
-    font-weight: bold;
-    background-color: var(--secondary-color);
+    font-weight: bolder;
+    font-size: 2.3rem;
 }
 
 /* Contact Form Styling */
