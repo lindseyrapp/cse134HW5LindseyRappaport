@@ -209,7 +209,31 @@ footer svg {
     height: auto; 
 }
 
+.project-title {
+    font-size: 2.5vw;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 20px;
+    margin: 20px 0;
+    background: white; /* Background color for text */
+    color: #333; /* Text color */
+    position: relative; /* Needed for gradient border positioning */
+    display: inline-block; /* Shrinks the box to content */
+    border-radius: 10px; /* Rounded corners */
+    z-index: 1; /* Ensures the text stays on top */
+}
 
+.project-title::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(45deg, #80c5f0, #a3d4f7, #d6f0fc); /* Lighter blue gradient */
+    border-radius: 10px; /* Match the border-radius */
+    z-index: -1; /* Position behind the text */
+}
 
 /* CSS Animation: Fade-in effect for name */
 @keyframes fadeIn {
