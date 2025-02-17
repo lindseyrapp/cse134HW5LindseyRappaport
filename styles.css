@@ -5,7 +5,7 @@
 :root {
     --primary-color: #2C3E50;
     --secondary-color: #ECF0F1;
-    --accent-color: #2180bf;
+    --accent-color: #1b79b8;
     --text-color: #333;
     --font-family: 'Italiana', serif;
     --sans-serif-font: 'Arial', sans-serif;
@@ -81,6 +81,7 @@ a {
 a:hover {
     color: var(--accent-color); 
     font-weight: bold;
+    background-color: #daf4f9;
 }
 
 /* Navigation Bar */
