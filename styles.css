@@ -238,6 +238,12 @@ footer svg {
         padding: 2vh 4vw;
     }
 
+    nav a.active {
+        font-weight: bolder;
+        color: #135f92; 
+        font-size: 6vw;
+    }
+
     main header h1 {
         font-size: 6vw;
     }
@@ -268,6 +274,12 @@ footer svg {
     nav a {
         font-size: 6vw;
         padding: 2vh 5vw;
+    }
+
+    nav a.active {
+        font-weight: bolder;
+        color: #135f92; 
+        font-size: 7vw;
     }
 
     main header h1 {
