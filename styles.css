@@ -89,6 +89,12 @@ figcaption {
     background: linear-gradient(135deg, #95cff4, #edf6fb);
 }
 
+blockquote {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
 a {
     color: var(--accent-color);
     text-decoration: none;
@@ -335,6 +341,7 @@ footer svg {
     border-radius: 10px; /* Match the border-radius */
     z-index: -1; /* Position behind the text */
 }
+
 
 /* CSS Animation: Fade-in effect for name */
 @keyframes fadeIn {
