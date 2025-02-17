@@ -38,6 +38,24 @@ article {
     align-items: center;
 }
 
+figure {
+    max-width: 100%;
+    margin: 5px auto;  /* Center the figure and give it some spacing */
+    text-align: center; /* Center the caption */
+}
+
+figure iframe {
+    width: 100%;   /* Makes the iframe take up 100% of the container width */
+    height: auto;  /* Maintain aspect ratio */
+    max-width: 100%; /* Ensures it doesn't go beyond container width */
+}
+
+figcaption {
+    font-size: 1.8vw;
+    margin-top: 5px;
+    color: #333;
+}
+
 a {
     color: var(--accent-color);
     text-decoration: none;
@@ -145,8 +163,6 @@ table caption {
     font-weight: bold;
     background-color: var(--secondary-color);
 }
-
-
 
 /* Download Resume Button */
 a.download-btn {
