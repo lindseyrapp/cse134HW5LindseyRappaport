@@ -119,27 +119,27 @@ main table td {
 table caption {
     font-weight: bolder;
     font-size: 2.7rem;
-    border: 2px solid var(--accent-color); /* Apply the accent color border */
-    border-radius: 10px; /* Rounded corners */
-    padding: 1vw; /* Optional: Adds padding inside the border */
+    border: 2px solid var(--accent-color); 
+    border-radius: 10px; 
+    padding: 1vw; 
 }
 
 hr {
-    border: 1px solid var(--primary-color); /* or another color */
-    width: 80%; /* Control the width */
-    margin: 2vh auto; /* Adds vertical spacing */
+    border: 1px solid var(--primary-color); 
+    width: 80%; 
+    margin: 2vh auto;
 }
 
 
 figure {
     max-width: 100%;
-    margin: 5px auto;  /* Center the figure and give it some spacing */
-    text-align: center; /* Center the caption */
+    margin: 5px auto;  
+    text-align: center; 
 }
 
 figure iframe {
     width: 100%;   /* Makes the iframe take up 100% of the container width */
-    height: auto;  /* Maintain aspect ratio */
+    height: auto;  
     max-width: 100%; /* Ensures it doesn't go beyond container width */
 }
 
@@ -190,9 +190,9 @@ nav {
     padding: 1vh 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    display: flex; /* Make nav a flex container */
-    justify-content: space-around; /* Evenly space out the links */
-    align-items: center; /* Center links vertically */
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center; 
     width: 100%;
     height: auto;
 }
@@ -223,19 +223,19 @@ nav a.active {
 }
 
 .non-tech-stack {
-    border: 2px solid var(--accent-color); /* Apply the accent color border */
-    border-radius: 8px; /* Rounded corners */
-    padding: 2vw; /* Optional: Adds padding inside the border */
-    max-width: 90%; /* Optional: To control width and avoid stretching */
-    margin: 2vh auto; /* Centers the section with vertical margin */
-    text-align: center; /* Ensures the text is centered inside the section */
+    border: 2px solid var(--accent-color); 
+    border-radius: 8px; 
+    padding: 2vw; 
+    max-width: 90%; 
+    margin: 2vh auto; 
+    text-align: center; 
 }
 
 .links {
     display: flex;
-    flex-direction: column; /* Stack the links vertically */
-    align-items: center; /* Center the links */
-    gap: 10px; /* Adds space between the links */
+    flex-direction: column; 
+    align-items: center; 
+    gap: 10px; 
     margin-top: 1vh;
 }
 
@@ -246,7 +246,7 @@ nav a.active {
 }
 
 .spotify-link:hover {
-    background-color: #81fbac; /* Darker green for hover */
+    background-color: #81fbac; /* Lighter green for hover */
     transform: scale(1.05);
 }
 
@@ -258,7 +258,7 @@ nav a.active {
 }
 
 .modeling-link:hover {
-    background-color: #a7f7f8; /* Darker blue for hover */
+    background-color: #a7f7f8; /* Lighter blue for hover */
     transform: scale(1.05);
 }
 
@@ -333,19 +333,19 @@ button:active {
 a.download-btn {
     display: inline-block;
     text-decoration: none;
-    background-color: var(--accent-color); /* Use your accent color */
-    color: var(--secondary-color); /* Light text for contrast */
+    background-color: var(--accent-color); 
+    color: var(--secondary-color); 
     font-size: 2.5vw;
     font-weight: bold;
     padding: 1.5vw 3vw;
-    border-radius: 5px; /* Slightly rounded corners */
+    border-radius: 5px; 
     text-align: center;
     transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
 }
 
 a.download-btn:hover {
     background-color: #135f92; /* Darker shade from accent color on hover */
-    transform: scale(1.05); /* Slightly enlarge on hover for more impact */
+    transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 a.download-btn:active {
@@ -380,12 +380,12 @@ footer svg {
     text-align: center;
     padding: 10px 20px;
     margin: 20px 0;
-    background: white; /* Background color for text */
-    color: #333; /* Text color */
+    background: white; 
+    color: #333; 
     position: relative; /* Needed for gradient border positioning */
-    display: inline-block; /* Shrinks the box to content */
-    border-radius: 10px; /* Rounded corners */
-    z-index: 1; /* Ensures the text stays on top */
+    display: inline-block; 
+    border-radius: 10px; 
+    z-index: 1; /* Text stays on top */
 }
 
 .project-title::before {
@@ -396,7 +396,7 @@ footer svg {
     right: -5px;
     bottom: -5px;
     background: linear-gradient(45deg, #80c5f0, #a3d4f7, #d6f0fc); /* Lighter blue gradient */
-    border-radius: 10px; /* Match the border-radius */
+    border-radius: 10px; 
     z-index: -1; /* Position behind the text */
 }
 
