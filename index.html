@@ -37,7 +37,7 @@
                 <source srcset="SmallHeadshot.jpg" media="(max-width: 600px)">
                 <source srcset="MediumHeadshot.jpg" media="(max-width: 1024px)">
                 <source srcset="LargeHeadshot.jpg" media="(min-width: 1025px)">
-                <img src="LargeHeadshot.jpg" alt="Lindsey Rappaport's Photo" class="headshot">
+                <img src="LargeHeadshot.jpg" alt="Lindsey Rappaport's Professional Headshot" class="headshot">
             </picture>
             
         </header>
@@ -46,21 +46,24 @@
             <a href="LindseyRappaportResume2024.pdf" download class="download-btn"> Download Resume</a>
         </section>
         <!-- Info sections -->
-        <section>
+        <section class="bio">
             <p></p>
+            <p>My name is Lindsey Rappaport and I'm currently a student at <abbr
+                title="University of California, San Diego">UCSD</abbr>, where I'm working on my Bachelor of Science in Computer Science. 
+                I earned my Associate in Science for transfer in Mathematics from Palomar College at the age of 18 after graduating from high school 
+                a year early. I'm an enthusiastic extrovert with a love for creative problem solving. In addition to being a student researcher at 
+                <abbr title="Lawrence Berkeley National Laboratory">LBNL</abbr> where I work on a metabolic pathway visualization project, I am a private tutor for grades K-12.
+            </p> 
             <table align="center" border="0" cellpadding="10">
                 <caption>My Professional Information:</caption>
                 <colgroup>
-                    <col class="bio-col"> <!-- Bio/About Me -->
                     <col class="education-col"> <!-- Education -->
                     <col class="work-experience-col"> <!-- Work Experience -->
                     <col class="soft-skills-col"> <!-- Soft Skills -->
                 </colgroup>
                 <thead>
                     <tr>
-                        <th>
-                            Bio/About Me
-                        </th>
+                        
                         <th>
                             Education
                         </th>
@@ -74,29 +77,41 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>
-                            Bio goes here... I'm a computer science student at <abbr
-                                title="University of California, San Diego">UCSD</abbr>...
-                        </td>
+                        
                         <td>
                             <!-- Custom semantic element -->
                             <education-info>
                                 <ul>
-                                    <li>Education 1 goes here</li>
-                                    <li>Education 2 goes here</li>
+                                    <li><i>Bachelor of Science in Computer Science (In Progress: September 2023 – Present), </i><b>University of California, San Diego – San Diego, CA</b></li>
+                                    <li><i>Associate in Science for Transfer in Mathematics (August 2020 – May 2023), </i><b>Palomar College – San Marcos, CA</b></li>
                                 </ul>
                             </education-info>
                         </td>
                         <td>
-                            <ul>
-                                <li>Work experience 1</li>
-                                <li>Work experience 2</li>
-                            </ul>
+                            <work-info>
+                                <ul>
+                                    <li><i>Lawrence Berkeley National Laboratory, Berkeley, CA</i></li>
+                                    <ul>
+                                        <li><b>Student Researcher (August 2021 – Present)</b></li>
+                                        <li><b>Research Intern (June 2021 – August 2021)</b></li>
+                                    </ul>
+                                    <li><i>MCT Trading, San Diego, CA - </i><b>Software Test Intern (June 2023 – August 2023)</b></li>
+                                    <li><i>Self-Employed, San Diego, CA - </i><b>Educational Tutor (September 2018 – Present)</b></li>
+                                    <li><i>Downtown Academics, San Marcos, CA - </i><b>Educational Tutor (October 2019 – May 2020)</b></li>
+                                </ul>
+                            </work-info>
                         </td>
                         <td>
                             <ul id="skills-list">
                                 <!-- Template will populate here, just using text for now until I add JS -->
-                                <li>Soft skills will be listed here...</li>
+                                <li>Public speaking and communication</li>
+                                <li>Strong leadership and organization</li>
+                                <li>Highly empathetic and emotionally intelligent</li>
+                                <li>Outgoing and people-oriented</li>
+                                <li>Comfortable in both solo and team settings</li>
+                                <li>Skilled in discussion facilitation</li>
+                                <li>Friendly and approachable</li>
+                                <li>Charismatic extrovert who thrives in conversation</li>
                             </ul>
                             <template id="skill-template">
                                 <li class="skill-item">Skill Name</li>

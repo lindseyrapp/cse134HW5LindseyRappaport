@@ -11,7 +11,8 @@
     --sans-serif-font: 'Arial', sans-serif;
 }
 html {
-    font-size: 1vw; /* Default scaling */
+    /* Default scaling */
+    font-size: 1vw;
 }
 
 body {
@@ -21,12 +22,14 @@ body {
     padding: 0;
     line-height: 1.6;
     font-size: 1.8rem;
+    text-align: center;
 }
 
 h1 {
     font-size: 3rem;
     text-align: center;
     margin: 0;
+    animation: fadeIn 1s ease-out; 
 }
 
 h2 {
@@ -57,7 +60,7 @@ article {
 main {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center the content horizontally */
+    align-items: center; 
     padding: 5vh 2vw;
     max-width: 100%;
 }
@@ -65,15 +68,16 @@ main {
 main, article, section {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center content horizontally */
-    justify-content: center; /* Center content vertically if needed */
-    text-align: center; /* Ensure text alignment */
+    align-items: center;
+    justify-content: center; 
+    text-align: center; 
 }
+
 
 main header {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center the header content */
+    align-items: center; 
     margin-bottom: 2vh;
 }
 
@@ -90,7 +94,7 @@ main header p {
 
 main table {
     width: 100%;
-    max-width: 90%; /* Set max width for large screens */
+    max-width: 90%; 
     margin: 1vh 0;
     font-size: 2vw;
 }
@@ -138,9 +142,9 @@ figure {
 }
 
 figure iframe {
-    width: 100%;   /* Makes the iframe take up 100% of the container width */
+    width: 100%;   
     height: auto;  
-    max-width: 100%; /* Ensures it doesn't go beyond container width */
+    max-width: 100%; 
 }
 
 figcaption {
@@ -150,10 +154,6 @@ figcaption {
 }
 
 /* Different gradients for each section */
-.bio-col, .bio-col th, .bio-col td {
-    background: linear-gradient(135deg, #c3deef, #f0f6f8);
-}
-
 .education-col, .education-col th, .education-col td {
     background: linear-gradient(135deg, #95cff4, #edf6fb);
 }
@@ -170,6 +170,14 @@ blockquote {
     max-width: 65%;
     margin: 0 auto;
     padding: 10px;
+    color: #154768;
+    animation: fadeIn 1s ease-out; 
+}
+
+.bio p {
+    font-weight: bolder;
+    max-width: 70%;
+    animation: fadeIn 1s ease-out; 
 }
 
 a {
@@ -246,19 +254,19 @@ nav a.active {
 }
 
 .spotify-link:hover {
-    background-color: #81fbac; /* Lighter green for hover */
+    background-color: #81fbac; 
     transform: scale(1.05);
 }
 
 /* Modeling Portfolio Link */
 .modeling-link {
-    background-color: #68f2e2; /* Custom blue */
+    background-color: #68f2e2; 
     color: #333;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .modeling-link:hover {
-    background-color: #a7f7f8; /* Lighter blue for hover */
+    background-color: #a7f7f8; 
     transform: scale(1.05);
 }
 
@@ -344,12 +352,12 @@ a.download-btn {
 }
 
 a.download-btn:hover {
-    background-color: #135f92; /* Darker shade from accent color on hover */
-    transform: scale(1.05); /* Slightly enlarge on hover */
+    background-color: #135f92; 
+    transform: scale(1.05); 
 }
 
 a.download-btn:active {
-    background-color: #114165; /* Even darker shade when clicked */
+    background-color: #114165; 
 }
 
 /* Footer Styles */
@@ -372,7 +380,50 @@ footer svg {
     max-width: 30vw; 
     width: 100%; 
     height: auto; 
+    animation: fadeIn 1s ease-out; 
 }
+
+education-info ul li b {
+    color: #19699f;
+}
+
+work-info ul li i {
+    color: #19699f;
+}
+
+
+.project-overview {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+}
+
+.technologies {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    font-size: 1.5rem;
+    max-width: 70%;
+}
+
+.technologies code {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    text-align: left; 
+    font-size: 1.5rem;
+    max-width: 70%;
+}
+
+.technologies dt {
+    color: var(--accent-color);
+}
+
 
 .project-title {
     font-size: 2.5vw;
@@ -395,7 +446,7 @@ footer svg {
     left: -5px;
     right: -5px;
     bottom: -5px;
-    background: linear-gradient(45deg, #80c5f0, #a3d4f7, #d6f0fc); /* Lighter blue gradient */
+    background: linear-gradient(45deg, #80c5f0, #a3d4f7, #d6f0fc); 
     border-radius: 10px; 
     z-index: -1; /* Position behind the text */
 }
@@ -457,6 +508,7 @@ footer svg {
     a.download-btn {
         font-size: 3vw;
         padding: 2vh 4vw;
+        animation: fadeIn 1s ease-out; 
     }
     form {
         max-width: 90%;
