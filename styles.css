@@ -54,6 +54,83 @@ article {
     align-items: center;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content horizontally */
+    padding: 5vh 2vw;
+    max-width: 100%;
+}
+
+main, article, section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically if needed */
+    text-align: center; /* Ensure text alignment */
+}
+
+main header {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the header content */
+    margin-bottom: 2vh;
+}
+
+main header h1 {
+    font-size: 4vw;
+    animation: fadeIn 1s ease-out; 
+}
+
+main header p {
+    font-size: 3vw;
+    max-width: 80%;
+    text-align: center;
+}
+
+main table {
+    width: 100%;
+    max-width: 90%; /* Set max width for large screens */
+    margin: 1vh 0;
+    font-size: 2vw;
+}
+
+main section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+main table th, main table td {
+    padding: 2vh 3vw;
+    text-align: center;
+}
+
+main table th {
+    color: #000000;
+    font-weight: bold;
+}
+
+main table td {
+    color: #333;
+    background-color: var(--secondary-color);
+}
+
+table caption {
+    font-weight: bolder;
+    font-size: 2.7rem;
+    border: 2px solid var(--accent-color); /* Apply the accent color border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 1vw; /* Optional: Adds padding inside the border */
+}
+
+hr {
+    border: 1px solid var(--primary-color); /* or another color */
+    width: 80%; /* Control the width */
+    margin: 2vh auto; /* Adds vertical spacing */
+}
+
+
 figure {
     max-width: 100%;
     margin: 5px auto;  /* Center the figure and give it some spacing */
@@ -143,76 +220,6 @@ nav a.active {
     font-weight: bolder;
     color: #135f92; 
     font-size: 3.5vw;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center the content horizontally */
-    padding: 5vh 2vw;
-    max-width: 100%;
-}
-
-main, article, section {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center content horizontally */
-    justify-content: center; /* Center content vertically if needed */
-    text-align: center; /* Ensure text alignment */
-}
-
-main header {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center the header content */
-    margin-bottom: 2vh;
-}
-
-main header h1 {
-    font-size: 4vw;
-    animation: fadeIn 1s ease-out; 
-}
-
-main header p {
-    font-size: 3vw;
-    max-width: 80%;
-    text-align: center;
-}
-
-main table {
-    width: 100%;
-    max-width: 90%; /* Set max width for large screens */
-    margin: 1vh 0;
-    font-size: 2vw;
-}
-
-main section {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-main table th, main table td {
-    padding: 2vh 3vw;
-    text-align: center;
-}
-
-main table th {
-    color: #000000;
-    font-weight: bold;
-}
-
-main table td {
-    color: #333;
-    background-color: var(--secondary-color);
-}
-
-table caption {
-    font-weight: bolder;
-    font-size: 2.7rem;
-    border: 2px solid var(--accent-color); /* Apply the accent color border */
-    border-radius: 10px; /* Rounded corners */
-    padding: 1vw; /* Optional: Adds padding inside the border */
 }
 
 .non-tech-stack {
