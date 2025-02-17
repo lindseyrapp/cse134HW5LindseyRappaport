@@ -153,6 +153,14 @@ main {
     max-width: 100%;
 }
 
+main, article, section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically if needed */
+    text-align: center; /* Ensure text alignment */
+}
+
 main header {
     display: flex;
     flex-direction: column;
@@ -201,7 +209,50 @@ main table td {
 
 table caption {
     font-weight: bolder;
-    font-size: 2.3rem;
+    font-size: 2.7rem;
+    border: 2px solid var(--accent-color); /* Apply the accent color border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 1vw; /* Optional: Adds padding inside the border */
+}
+
+.non-tech-stack {
+    border: 2px solid var(--accent-color); /* Apply the accent color border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 2vw; /* Optional: Adds padding inside the border */
+    max-width: 90%; /* Optional: To control width and avoid stretching */
+    margin: 2vh auto; /* Centers the section with vertical margin */
+    text-align: center; /* Ensures the text is centered inside the section */
+}
+
+.links {
+    display: flex;
+    flex-direction: column; /* Stack the links vertically */
+    align-items: center; /* Center the links */
+    gap: 10px; /* Adds space between the links */
+    margin-top: 1vh;
+}
+
+.spotify-link {
+    background-color: #68f499; /* Spotify green */
+    color: #333;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.spotify-link:hover {
+    background-color: #81fbac; /* Darker green for hover */
+    transform: scale(1.05);
+}
+
+/* Modeling Portfolio Link */
+.modeling-link {
+    background-color: #68f2e2; /* Custom blue */
+    color: #333;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modeling-link:hover {
+    background-color: #a7f7f8; /* Darker blue for hover */
+    transform: scale(1.05);
 }
 
 /* Contact Form Styling */
