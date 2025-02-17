@@ -7,7 +7,7 @@
     --secondary-color: #ECF0F1;
     --accent-color: #1b79b8;
     --text-color: #333;
-    --font-family: 'Italiana', serif;
+    --font-choice: 'Italiana', serif;
     --sans-serif-font: 'Arial', sans-serif;
 }
 html {
@@ -15,7 +15,7 @@ html {
 }
 
 body {
-    font-family: var(--font-family);
+    font-family: var(--font-choice);
     color: var(--text-color);
     margin: 0;
     padding: 0;
