@@ -15,81 +15,91 @@
         <a href="projects.html">Projects</a>
     </nav>
     <hr>
-    <h1>Contact</h1>
-    <article>
-        <h3>Get In Touch!</h3>
-        <p>If you'd like to connect, feel free to find me on LinkedIn or fill out the contact form below:</p>
+    <main>
+        <h1>Contact</h1>
+        <article>
+            <h3>Get In Touch!</h3>
+            <p>If you'd like to connect, feel free to find me on LinkedIn or fill out the contact form below:</p>
 
-        <!-- LinkedIn link -->
-        <address>
-            <p>
-                <a href="https://www.linkedin.com/in/lindsey-rappaport/" target="_blank"><i>Connect with me on
-                        <b>LinkedIn!</b></i></a>
-            </p>
-        </address>
+            <!-- LinkedIn link -->
+            <address>
+                <p>
+                    <a href="https://www.linkedin.com/in/lindsey-rappaport/" target="_blank"><i>Connect with me on
+                            <b>LinkedIn!</b></i></a>
+                </p>
+            </address>
 
-        <!-- Contact form -->
-        <form action="mailto:lindseyrappaport03@gmail.com" method="post" enctype="text/plain">
-            <fieldset>
-                <legend><strong>Contact Form</strong></legend>
-                <label for="name">Name:</label><br>
-                <input type="text" id="name" name="name" required><br><br>
+            <!-- Contact form -->
+            <form action="https://httpbin.org/post" method="post">
+                <fieldset>
+                    <legend><strong>Contact Form</strong></legend>
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="name" required><br><br>
 
-                <label for="email">Email:</label><br>
-                <input type="email" id="email" name="email" required><br><br>
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" required><br><br>
 
-                <!-- Subject selection -->
-                <label for="subject">Subject (select from dropdown):</label><br>
-                <select id="subject" name="subject">
-                    <optgroup label="Topics">
-                        <option value="general">General Inquiry</option>
-                        <option value="job">Job Opportunity</option>
-                        <option value="project">Project Collaboration</option>
-                        <option value="feedback">Feedback</option>
-                    </optgroup>
-                </select><br><br>
+                    <!-- Hidden field for bot detection -->
+                    <input type="hidden" name="possible_bot" value="true">
 
-                <!-- Or allow free text entry -->
-                <label for="subject-text">Or type your subject:</label><br>
-                <input list="subjects" id="subject-text" name="subject-text" placeholder="Choose or type a subject">
-                <datalist id="subjects">
-                    <option value="General Inquiry">
-                    <option value="Job Opportunity">
-                    <option value="Project Collaboration">
-                    <option value="Feedback">
-                </datalist><br><br>
+                    <!-- Subject selection -->
+                    <label for="subject">Subject (select from dropdown):</label><br>
+                    <select id="subject" name="subject">
+                        <optgroup label="Topics">
+                            <option value="general">General Inquiry</option>
+                            <option value="job">Job Opportunity</option>
+                            <option value="project">Project Collaboration</option>
+                            <option value="feedback">Feedback</option>
+                        </optgroup>
+                    </select><br><br>
 
-                <label for="message">Message:</label><br>
-                <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+                    <!-- Or allow free text entry -->
+                    <label for="subject-text">Or type your subject:</label><br>
+                    <input list="subjects" id="subject-text" name="subject-text" placeholder="Choose or type a subject">
+                    <datalist id="subjects">
+                        <option value="General Inquiry">
+                        <option value="Job Opportunity">
+                        <option value="Project Collaboration">
+                        <option value="Feedback">
+                    </datalist><br><br>
 
-                <button type="submit">Send</button>
-            </fieldset>
-        </form>
+                    <label for="comments">Comments: <span aria-hidden="true">*</span></label>
+                    <textarea id="comments" name="comments" rows="4" required></textarea><br>
 
-        <p>After filling out the form, click the <kbd>Send</kbd> button to send your message.</p>
+                    <!-- Output elements for validation messages -->
+                    <output id="error-message"></output>
+                    <output id="info-message"></output>
+                    
+                    <button type="submit">Send</button>
+                </fieldset>
+            </form>
 
-        <!-- Link to show terms and conditions -->
-        <a href="#terms-dialog">Click here to read terms and conditions</a>
+            <p>After filling out the form, click the <kbd>Send</kbd> button to send your message.</p>
 
-        <!-- Dialog for terms and conditions -->
-        <dialog id="terms-dialog">
-            <h3>Terms and Conditions</h3>
-            <p>By contacting me, you agree to share your information solely for the purpose of communication. Your data
-                will not be shared without consent.</p>
-            <footer>
-                <button onclick="document.getElementById('terms-dialog').close();">Close</button>
-                <!-- Button to close the dialog -->
-            </footer>
-        </dialog>
-        
+            <!-- Link to show terms and conditions -->
+            <a href="#terms-dialog">Click here to read terms and conditions</a>
 
-        <hr>
-        <!-- More info -->
-        <details>
-            <summary><strong>More Info</strong></summary>
-            <p>Feel free to reach out at any time. I look forward to hearing from you!</p>
-        </details>
-    </article>
+            <!-- Dialog for terms and conditions -->
+            <dialog id="terms-dialog">
+                <h3>Terms and Conditions</h3>
+                <p>By contacting me, you agree to share your information solely for the purpose of communication. Your
+                    data
+                    will not be shared without consent.</p>
+                <footer>
+                    <button onclick="document.getElementById('terms-dialog').close();">Close</button>
+                    <!-- Button to close the dialog -->
+                </footer>
+            </dialog>
+
+
+            <hr>
+            <!-- More info -->
+            <details>
+                <summary><strong>More Info</strong></summary>
+                <p>Feel free to reach out at any time. I look forward to hearing from you!</p>
+            </details>
+        </article>
+    </main>
 </body>
 
 </html>
