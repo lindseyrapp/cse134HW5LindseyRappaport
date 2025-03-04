@@ -34,10 +34,10 @@
                 <fieldset>
                     <legend><strong>Contact Form</strong></legend>
                     <label for="name">Name:</label><br>
-                    <input type="text" id="name" name="name" required><br><br>
+                    <input type="text" id="name" name="name" required><br>
 
                     <label for="email">Email:</label><br>
-                    <input type="email" id="email" name="email" required><br><br>
+                    <input type="email" id="email" name="email" required><br>
 
                     <!-- Hidden field for bot detection -->
                     <input type="hidden" name="possible_bot" value="true">
@@ -51,7 +51,7 @@
                             <option value="project">Project Collaboration</option>
                             <option value="feedback">Feedback</option>
                         </optgroup>
-                    </select><br><br>
+                    </select><br>
 
                     <!-- Or allow free text entry -->
                     <label for="subject-text">Or type your subject:</label><br>
@@ -61,9 +61,9 @@
                         <option value="Job Opportunity">
                         <option value="Project Collaboration">
                         <option value="Feedback">
-                    </datalist><br><br>
+                    </datalist><br>
 
-                    <label for="comments">Comments: <span aria-hidden="true"></span></label>
+                    <label for="comments">Comments:</label>
                     <textarea id="comments" name="comments" rows="4" required></textarea><br>
 
                     <!-- Output elements for validation messages -->

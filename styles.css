@@ -48,6 +48,7 @@ p {
     font-size: 1.8rem;
     text-align: center;
     max-width: 80%;
+    margin: 0 auto;
 }
 
 article {
@@ -199,7 +200,7 @@ nav {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     display: flex; 
-    justify-content: space-around; 
+    justify-content: center; 
     align-items: center; 
     width: 100%;
     height: auto;
@@ -278,7 +279,7 @@ form {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     max-width: 80%;
     width: 100%;
-    text-align: left;
+    text-align: center;
     transition: all 0.3s ease-in-out;
 }
 
@@ -526,6 +527,10 @@ work-info ul li i {
     input, select, textarea {
         font-size: 2.2vw;
         padding: 2vw;
+    }
+
+    label, input, select, textarea {
+        text-align: left; /* Only input text should be left-aligned */
     }
 
     button {
