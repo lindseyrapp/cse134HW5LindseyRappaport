@@ -320,12 +320,14 @@ input:focus, select:focus, textarea:focus {
 /* Valid input styling */
 input:valid, select:valid, textarea:valid {
     border-color: #135f92;
+    font-family: 'Italiana', serif;
     
 }
 
 /* Invalid input styling */
 input:invalid, select:invalid, textarea:invalid {
     border-color: #FF5733;
+    font-family: 'Italiana', serif;
     
 }
 
