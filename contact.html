@@ -91,6 +91,7 @@
         </article>
     </main>
     <script>
+        const formErrors = [];
         document.addEventListener("DOMContentLoaded", function () {
             // Variables
             const form = document.getElementById("contact-form");
@@ -105,11 +106,11 @@
                 comments: document.getElementById("comments-error"),
             };
             const maxComments = 500;
-            const formErrors = [];
 
             // Record error 
             function recordError(field, message) {
-                if (!formErrors.find(err => err.field === field && err.message === message)) {
+                const existing = formErrors.find(err => err.field === field && err.message === message);
+                if (!existing) {
                     formErrors.push({ field, message });
                 }
             }
@@ -126,7 +127,8 @@
 
             // Clear error
             function clearError(input) {
-                errorMessages[input.id].textContent = "";
+                const errorField = errorMessages[input.id];
+                errorField.textContent = "";
                 input.classList.remove("input-error");
             }
 
