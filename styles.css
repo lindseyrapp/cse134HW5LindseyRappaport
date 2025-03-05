@@ -16,6 +16,7 @@ html {
 }
 
 /* Dark Mode (Night Mode) */
+/* Root variables for dark mode */
 [data-theme="dark"] {
     --primary-color: #ffffff;
     --secondary-color: #2b2b2b;
@@ -32,6 +33,7 @@ html {
     color: var(--text-color);
 }
 
+/* Links */
 [data-theme="dark"] a {
     color: var(--accent-color);
 }
@@ -41,9 +43,10 @@ html {
     color: white;
 }
 
+/* Nav Bar */
 [data-theme="dark"] nav {
     background-color: #1f1f1f;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme="dark"] nav a {
@@ -61,20 +64,56 @@ html {
     border-color: var(--accent-color);
 }
 
-[data-theme="dark"] th, 
+[data-theme="dark"] th,
 [data-theme="dark"] td {
     background-color: var(--secondary-color);
     color: var(--text-color);
 }
 
+/* Captions */
 [data-theme="dark"] caption {
     color: var(--accent-color);
     background-color: #1f1f1f;
 }
 
-/* Forms and Inputs */
+/* Blockquotes */
+[data-theme="dark"] blockquote {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+/* Details and Summary */
+[data-theme="dark"] details {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] summary {
+    color: var(--accent-color);
+}
+
+/* Asides */
+[data-theme="dark"] aside {
+    background-color: var(--secondary-color);
+    border-color: var(--accent-color);
+    color: var(--text-color);
+}
+
+/* Project titles */
+[data-theme="dark"] .project-title {
+    background-color: #222;
+    color: var(--accent-color);
+}
+
+/* Footer */
+[data-theme="dark"] footer {
+    background-color: #1f1f1f;
+    color: var(--text-color);
+}
+
+/* Form Elements */
 [data-theme="dark"] form {
-    background: linear-gradient(135deg, #1a1a1a, #222);
+    background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
     color: var(--text-color);
     border-color: var(--accent-color);
 }
@@ -88,81 +127,84 @@ html {
     color: var(--accent-color);
 }
 
+/* Inputs, Textareas, Selects, including empty state fix */
 [data-theme="dark"] input,
 [data-theme="dark"] textarea,
 [data-theme="dark"] select {
     background-color: #1f1f1f;
     color: var(--text-color);
     border: 1px solid var(--accent-color);
-    font-family: var(--sans-serif-font); /* Optional to improve readability */
 }
 
+/* Make empty fields dark before typing */
+[data-theme="dark"] textarea:placeholder-shown,
+[data-theme="dark"] input:placeholder-shown {
+    background-color: #1f1f1f;
+    color: #bbb;
+}
+
+/* Focus state */
+[data-theme="dark"] input:focus,
+[data-theme="dark"] textarea:focus,
+[data-theme="dark"] select:focus {
+    background-color: #1f1f1f;
+    color: var(--text-color);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px var(--accent-color);
+}
+
+/* Placeholder text */
 [data-theme="dark"] input::placeholder,
 [data-theme="dark"] textarea::placeholder {
     color: #bbb;
 }
 
-[data-theme="dark"] input:focus,
-[data-theme="dark"] textarea:focus,
-[data-theme="dark"] select:focus {
-    border-color: var(--accent-color);
-    box-shadow: 0 0 5px var(--accent-color);
-    outline: none;
-}
-
+/* Buttons */
 [data-theme="dark"] button {
     background-color: var(--accent-color);
-    color: #121212;
+    color: black;
 }
 
 [data-theme="dark"] button:hover {
     background-color: #3a98c5;
 }
 
-/* Blockquotes, Details, and Summary */
-[data-theme="dark"] blockquote {
-    background-color: var(--secondary-color);
-    color: var(--text-color);
-}
-
-[data-theme="dark"] details {
-    background-color: var(--secondary-color);
-    color: var(--text-color);
-}
-
-[data-theme="dark"] summary {
-    color: var(--accent-color);
-}
-
-/* Footer */
-[data-theme="dark"] footer {
-    background-color: #1f1f1f;
-    color: var(--text-color);
-}
-
-/* Aside and Project Title */
-[data-theme="dark"] aside {
-    background-color: var(--secondary-color);
-    border-color: var(--accent-color);
-    color: var(--text-color);
-}
-
-[data-theme="dark"] .project-title {
-    background-color: #222;
-    color: var(--accent-color);
-}
-
-/* Error Messages */
+/* Error messages */
 [data-theme="dark"] .error-message {
     color: #ff7f7f;
 }
 
-/* Optional: Table caption */
-[data-theme="dark"] table caption {
-    background-color: var(--secondary-color);
+/* Terms & Conditions Dialog (Dark Mode) */
+[data-theme="dark"] dialog {
+    background-color: #2b2b2b;
+    color: var(--text-color);
+    border: 1px solid var(--accent-color);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="dark"] dialog h3 {
     color: var(--accent-color);
 }
 
+[data-theme="dark"] dialog button {
+    background-color: var(--accent-color);
+    color: black;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+[data-theme="dark"] dialog button:hover {
+    background-color: #3a98c5;
+}
+
+
+
+/* Normal (Light) Mode */
 body {
     font-family: var(--font-choice);
     color: var(--text-color);
@@ -662,6 +704,41 @@ work-info ul li i {
     z-index: -1; /* Position behind the text */
 }
 
+/* Terms & Conditions Dialog Button (Light Mode) */
+dialog button {
+    font-size: 1rem;
+    padding: 0.3rem 0.8rem;
+    font-weight: normal;
+    border-radius: 5px;
+    background-color: var(--accent-color);
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 1px solid var(--accent-color);
+    margin-top: 1rem;
+}
+
+dialog button:hover {
+    background-color: #3a98c5;
+}
+
+/* Terms & Conditions Dialog Button (Dark Mode) */
+[data-theme="dark"] dialog button {
+    font-size: 1rem;
+    padding: 0.3rem 0.8rem;
+    font-weight: normal;
+    border-radius: 5px;
+    background-color: var(--accent-color);
+    color: black;
+    cursor: pointer;
+    border: 1px solid var(--accent-color);
+}
+
+[data-theme="dark"] dialog button:hover {
+    background-color: #4da8da;
+}
+
+
 
 /* CSS Animation: Fade-in effect for name */
 @keyframes fadeIn {
@@ -811,6 +888,48 @@ work-info ul li i {
         font-size: 3.5vw;
         padding: 3vw;
     }
+}
+
+/* Terms & Conditions Link - Make it Smaller & Subtle */
+.terms-link {
+    font-size: 1.7rem;            
+    font-weight: normal;          
+    color: #555;                   
+    text-decoration: underline;   
+    cursor: pointer;              
+    margin-top: 1rem;             
+    display: inline-block;        
+    transition: color 0.3s ease;  
+}
+
+.terms-link:hover {
+    color: var(--accent-color);   
+}
+
+/* Dark Mode Version */
+[data-theme="dark"] .terms-link {
+    color: #bbb;              
+}
+
+[data-theme="dark"] .terms-link:hover {
+    color: var(--accent-color);   
+}
+
+/* Style for the Close button inside the Terms & Conditions dialog */
+#terms-dialog button {
+    font-size: 1.4rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#terms-dialog button:hover {
+    background-color: #135f92;
+    transform: scale(1.05);
 }
 
 

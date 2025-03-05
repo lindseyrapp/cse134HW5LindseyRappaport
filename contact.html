@@ -71,7 +71,7 @@
             <p>After filling out the form, click the <kbd>Send</kbd> button to send your message.</p>
 
             <!-- Link to show terms and conditions -->
-            <a href="#terms-dialog">Click here to read terms and conditions</a>
+            <a href="#terms-dialog" class="terms-link">Click here to read terms and conditions</a>
 
             <!-- Dialog for terms and conditions -->
             <dialog id="terms-dialog">
@@ -81,10 +81,8 @@
                     will not be shared without consent.</p>
                 <footer>
                     <button onclick="document.getElementById('terms-dialog').close();">Close</button>
-                    <!-- Button to close the dialog -->
                 </footer>
             </dialog>
-
 
             <hr>
             <!-- More info -->
@@ -110,6 +108,15 @@
                 comments: document.getElementById("comments-error"),
             };
             const maxComments = 500;
+
+            const termsLink = document.querySelector('.terms-link');
+            const termsDialog = document.getElementById('terms-dialog');
+
+            // Terms and conditions
+            termsLink.addEventListener('click', function (e) {
+                e.preventDefault(); // Prevent jump to #
+                termsDialog.showModal();
+            });
 
             // Record error 
             function recordError(field, message) {
@@ -211,6 +218,9 @@
 
                 formErrorsField.value = JSON.stringify(formErrors);
             });
+
+            
+
         });
     </script>
     <script src="theme.js"></script>
