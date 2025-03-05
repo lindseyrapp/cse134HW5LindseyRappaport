@@ -52,7 +52,8 @@
                     </select>
 
                     <label for="comments">Comments:</label>
-                    <textarea id="comments" name="comments" rows="4" required maxlength="500" placeholder="Write your message here..."></textarea>
+                    <textarea id="comments" name="comments" rows="4" required maxlength="500"
+                        placeholder="Write your message here..."></textarea>
                     <p class="error-message" id="comments-error"></p>
                     <p class="char-count" id="char-count">500 characters remaining</p>
 
@@ -106,6 +107,13 @@
             const maxComments = 500;
             let formErrors = [];
 
+            // Record error 
+            function recordError(field, message) {
+                if (!formErrors.find(err => err.field === field && err.message === message)) {
+                    formErrors.push({ field, message });
+                }
+            }
+
             // Show error
             function showError(input, message) {
                 const errorField = errorMessages[input.id];
@@ -115,11 +123,10 @@
                 recordError(input.name, message);
                 fadeOutError(errorField);
             }
-            
+
             // Clear error
             function clearError(input) {
-                const errorField = errorMessages[input.id];
-                errorField.textContent = "";
+                errorMessages[input.id].textContent = "";
                 input.classList.remove("input-error");
             }
 
@@ -128,56 +135,58 @@
                 setTimeout(() => input.classList.remove("flash"), 500);
             }
 
-            function fadeOutError(element) {
-                setTimeout(() => element.textContent = "", 5000);
+            function fadeOutError(errorField) {
+                setTimeout(() => errorField.textContent = "", 3000);
             }
 
-            function recordError(field, message) {
-                formErrors.push({ field, message });
-            }
-
-            // Name validation and masking
-            function validateName() {
-                const regex = /^[A-Za-z\s]*$/;
-                if (!regex.test(nameInput.value)) {
+            // Real-time name validation & masking
+            nameInput.addEventListener("input", () => {
+                if (!/^[A-Za-z\s]*$/.test(nameInput.value)) {
                     showError(nameInput, "Only letters and spaces allowed.");
                     nameInput.value = nameInput.value.replace(/[^A-Za-z\s]/g, "");
-                    return false;
+                } else {
+                    clearError(nameInput);
                 }
-                clearError(nameInput);
-                return true;
-            }
+            });
 
-            // Comments/character validation
-            function updateCharCount() {
+            // Real-time email validation
+            emailInput.addEventListener("input", () => {
+                if (emailInput.validity.typeMismatch) {
+                    showError(emailInput, "Please enter a valid email address.");
+                } else {
+                    clearError(emailInput);
+                }
+            });
+
+            // Character countdown for comments
+            commentsInput.addEventListener("input", () => {
                 const remaining = maxComments - commentsInput.value.length;
                 charCount.textContent = `${remaining} characters remaining`;
-                charCount.style.color = remaining < 50 ? "red" : "black";
+                charCount.style.color = remaining < 50 ? "red" : "";
+
                 if (remaining < 0) {
                     showError(commentsInput, "Character limit exceeded.");
                     commentsInput.value = commentsInput.value.substring(0, maxComments);
                 } else {
                     clearError(commentsInput);
                 }
-            }
-
-            nameInput.addEventListener("input", validateName);
-            commentsInput.addEventListener("input", updateCharCount);
+            });
 
             // Form validation (before submission)
             form.addEventListener("submit", function (e) {
-                formErrors = [];
                 let valid = true;
+                // Reset for new submission
+                formErrors = []; 
                 if (!nameInput.checkValidity()) {
                     showError(nameInput, "Please enter a valid name.");
                     valid = false;
                 }
                 if (!emailInput.checkValidity()) {
-                    showError(emailInput, "Please enter a valid email.");
+                    showError(emailInput, "Please enter a valid email address.");
                     valid = false;
                 }
                 if (!commentsInput.checkValidity()) {
-                    showError(commentsInput, "Comments must be at least 2 characters.");
+                    showError(commentsInput, "Please enter at least 2 characters.");
                     valid = false;
                 }
                 if (!valid) {
