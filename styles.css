@@ -15,13 +15,152 @@ html {
     font-size: 1vw;
 }
 
-/* Dark Mode */
+/* Dark Mode (Night Mode) */
 [data-theme="dark"] {
-    --primary-color: #ECF0F1;
-    --secondary-color: #2C3E50;
-    --accent-color: #1b79b8;
-    --text-color: #ECF0F1;
-    --background-color: #1c1c1c;
+    --primary-color: #ffffff;
+    --secondary-color: #2b2b2b;
+    --accent-color: #4da8da;
+    --text-color: #f0f0f0;
+    --background-color: #121212;
+
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] a {
+    color: var(--accent-color);
+}
+
+[data-theme="dark"] a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+[data-theme="dark"] nav {
+    background-color: #1f1f1f;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] nav a {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] nav a.active {
+    color: var(--accent-color);
+}
+
+/* Tables */
+[data-theme="dark"] table {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border-color: var(--accent-color);
+}
+
+[data-theme="dark"] th, 
+[data-theme="dark"] td {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] caption {
+    color: var(--accent-color);
+    background-color: #1f1f1f;
+}
+
+/* Forms and Inputs */
+[data-theme="dark"] form {
+    background: linear-gradient(135deg, #1a1a1a, #222);
+    color: var(--text-color);
+    border-color: var(--accent-color);
+}
+
+[data-theme="dark"] fieldset {
+    border-color: var(--accent-color);
+    background-color: var(--secondary-color);
+}
+
+[data-theme="dark"] legend {
+    color: var(--accent-color);
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+    background-color: #1f1f1f;
+    color: var(--text-color);
+    border: 1px solid var(--accent-color);
+    font-family: var(--sans-serif-font); /* Optional to improve readability */
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+    color: #bbb;
+}
+
+[data-theme="dark"] input:focus,
+[data-theme="dark"] textarea:focus,
+[data-theme="dark"] select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px var(--accent-color);
+    outline: none;
+}
+
+[data-theme="dark"] button {
+    background-color: var(--accent-color);
+    color: #121212;
+}
+
+[data-theme="dark"] button:hover {
+    background-color: #3a98c5;
+}
+
+/* Blockquotes, Details, and Summary */
+[data-theme="dark"] blockquote {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] details {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] summary {
+    color: var(--accent-color);
+}
+
+/* Footer */
+[data-theme="dark"] footer {
+    background-color: #1f1f1f;
+    color: var(--text-color);
+}
+
+/* Aside and Project Title */
+[data-theme="dark"] aside {
+    background-color: var(--secondary-color);
+    border-color: var(--accent-color);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .project-title {
+    background-color: #222;
+    color: var(--accent-color);
+}
+
+/* Error Messages */
+[data-theme="dark"] .error-message {
+    color: #ff7f7f;
+}
+
+/* Optional: Table caption */
+[data-theme="dark"] table caption {
+    background-color: var(--secondary-color);
+    color: var(--accent-color);
 }
 
 body {
