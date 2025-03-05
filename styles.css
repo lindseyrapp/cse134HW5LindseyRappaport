@@ -341,6 +341,24 @@ input:placeholder-shown, textarea:placeholder-shown {
     background-color: #f9f9f9;
 }
 
+.error-message {
+    color: red;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    text-align: left;
+    height: 1.5rem; /* Ensures space for errors without shifting content */
+}
+
+.char-count {
+    font-size: 1.6rem;
+}
+
+textarea, input {
+    width: 90%;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+}
+
 button {
     background-color: var(--accent-color);
     color: white;
