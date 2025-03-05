@@ -150,8 +150,8 @@
             });
 
             // Real-time email validation
-            emailInput.addEventListener("input", () => {
-                if (emailInput.validity.typeMismatch) {
+            emailInput.addEventListener("blur", () => {
+                if (!emailInput.validity.valid) {
                     showError(emailInput, "Please enter a valid email address.");
                 } else {
                     clearError(emailInput);
@@ -175,7 +175,11 @@
             // Form validation (before submission)
             form.addEventListener("submit", (e) => {
                 let valid = true;
-                formErrors = []; 
+
+                // Clear errors on screen but do not clear formErrors array 
+                clearError(nameInput);
+                clearError(emailInput);
+                clearError(commentsInput);
 
                 // Validate name
                 if (!nameInput.checkValidity()) {
