@@ -15,6 +15,15 @@ html {
     font-size: 1vw;
 }
 
+/* Dark Mode */
+[data-theme="dark"] {
+    --primary-color: #ECF0F1;
+    --secondary-color: #2C3E50;
+    --accent-color: #1b79b8;
+    --text-color: #ECF0F1;
+    --background-color: #1c1c1c;
+}
+
 body {
     font-family: var(--font-choice);
     color: var(--text-color);
@@ -238,6 +247,17 @@ nav a.active {
     max-width: 90%; 
     margin: 2vh auto; 
     text-align: center; 
+}
+
+#theme-toggle {
+    border: none;
+    font-size: 5rem;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+#theme-toggle:focus {
+    outline: 2px solid var(--accent-color);
 }
 
 .links {

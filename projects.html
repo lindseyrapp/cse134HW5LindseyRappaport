@@ -13,6 +13,10 @@
         <a href="contact.html">Contact</a>
         <a href="index.html">Home</a>
         <a href="projects.html" class="active">Projects</a>
+        <button id="theme-toggle" aria-label="Switch to dark mode">🌙</button>
+        <noscript>
+            <p style="font-size: small;">Theme toggle requires JavaScript.</p>
+        </noscript>
     </nav>
     <hr>
     <h1>Projects</h1>
@@ -31,15 +35,18 @@
             <div class="project-title">
                 <h3>Group Project: Developer Journal</h3>
                 <p><dfn title="Project setting">CSE 110, Spring 2024 UCSD</dfn></p>
-            </div>            
+            </div>
             <div class="project-role">
                 <h3>Role: Co-Leader</h3>
             </div>
             <div class="project-overview">
-                <p>Co-led a team of 12 in an Agile environment to develop a developer journal application enabling task tracking, progress visualization, and project organization for developers. Managed task assignments, repository updates, and code reviews. Wrote user stories, ADRs, CI/CD materials, and E2E tests; filmed/edited project videos and co-presented the final pitch.</p>
+                <p>Co-led a team of 12 in an Agile environment to develop a developer journal application enabling task
+                    tracking, progress visualization, and project organization for developers. Managed task assignments,
+                    repository updates, and code reviews. Wrote user stories, ADRs, CI/CD materials, and E2E tests;
+                    filmed/edited project videos and co-presented the final pitch.</p>
             </div>
             <p><a href="https://github.com/cse110-sp24-group12/cse110-sp24-group12?tab=readme-ov-file"
-                target="_blank">Github Repository Link</a></p>
+                    target="_blank">Github Repository Link</a></p>
             <figure>
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/bcrQLURp_nw?si=s4hvcZnzuA6UG7Af"
                     title="YouTube video player" frameborder="0"
@@ -54,7 +61,7 @@
                     <dt>
                         <pre><span title="Tech 1">Electron and Other Dependencies</span></pre>
                     </dt>
-                    <dd>Used Electron as a wrapper as well as the following dependencies: 
+                    <dd>Used Electron as a wrapper as well as the following dependencies:
                         <code><pre>
                             import { app, BrowserWindow, ipcMain } from 'electron';
                             import path from 'node:path';
@@ -135,6 +142,7 @@
         </article>
 
     </section>
+    <script src="theme.js"></script>
 </body>
 
 </html>
