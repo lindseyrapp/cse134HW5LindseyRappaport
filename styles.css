@@ -349,6 +349,15 @@ input:placeholder-shown, textarea:placeholder-shown {
     height: 1.5rem; /* Ensures space for errors without shifting content */
 }
 
+.flash {
+    animation: flash 0.3s ease;
+}
+
+@keyframes flash {
+    0% { background-color: #fdd; }
+    100% { background-color: white; }
+}
+
 .char-count {
     font-size: 1.6rem;
 }

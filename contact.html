@@ -34,8 +34,7 @@
                 <fieldset>
                     <legend><strong>Contact Form</strong></legend>
                     <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required pattern="[A-Za-z\s]+"
-                        title="Only letters and spaces allowed">
+                    <input type="text" id="name" name="name" required pattern="[A-Za-z\s]+">
                     <p class="error-message" id="name-error"></p>
 
                     <label for="email">Email:</label>
@@ -53,10 +52,12 @@
                     </select>
 
                     <label for="comments">Comments:</label>
-                    <textarea id="comments" name="comments" rows="4" required minlength="2" maxlength="500"
-                        title="Please enter at least 2 characters" placeholder="Write your message here..."></textarea>
+                    <textarea id="comments" name="comments" rows="4" required maxlength="500" placeholder="Write your message here..."></textarea>
                     <p class="error-message" id="comments-error"></p>
                     <p class="char-count" id="char-count">500 characters remaining</p>
+
+                    <!-- Hidden field to hold JSON string of errors -->
+                    <input type="hidden" name="form-errors" id="form-errors">
 
                     <button type="submit">Send</button>
                 </fieldset>
@@ -96,61 +97,93 @@
             const emailInput = document.getElementById("email");
             const commentsInput = document.getElementById("comments");
             const charCount = document.getElementById("char-count");
-            const nameError = document.getElementById("name-error");
-            const emailError = document.getElementById("email-error");
-            const commentsError = document.getElementById("comments-error");
-            const maxCommentLength = 500;
+            const formErrorsField = document.getElementById("form-errors");
+            const errorMessages = {
+                name: document.getElementById("name-error"),
+                email: document.getElementById("email-error"),
+                comments: document.getElementById("comments-error"),
+            };
+            const maxComments = 500;
+            let formErrors = [];
 
-            // Clear errors
-            function clearErrors() {
-                nameError.textContent = "";
-                emailError.textContent = "";
-                commentsError.textContent = "";
+            // Show error
+            function showError(input, message) {
+                const errorField = errorMessages[input.id];
+                errorField.textContent = message;
+                input.classList.add("input-error");
+                flashField(input);
+                recordError(input.name, message);
+                fadeOutError(errorField);
+            }
+            
+            // Clear error
+            function clearError(input) {
+                const errorField = errorMessages[input.id];
+                errorField.textContent = "";
+                input.classList.remove("input-error");
+            }
+
+            function flashField(input) {
+                input.classList.add("flash");
+                setTimeout(() => input.classList.remove("flash"), 500);
+            }
+
+            function fadeOutError(element) {
+                setTimeout(() => element.textContent = "", 5000);
+            }
+
+            function recordError(field, message) {
+                formErrors.push({ field, message });
             }
 
             // Name validation and masking
-            nameInput.addEventListener("input", function (event) {
-                const regex = /^[A-Za-z\s]+$/;
+            function validateName() {
+                const regex = /^[A-Za-z\s]*$/;
                 if (!regex.test(nameInput.value)) {
-                    nameError.textContent = "Only letters and spaces allowed.";
+                    showError(nameInput, "Only letters and spaces allowed.");
                     nameInput.value = nameInput.value.replace(/[^A-Za-z\s]/g, "");
-                } else {
-                    nameError.textContent = "";
+                    return false;
                 }
-            });
+                clearError(nameInput);
+                return true;
+            }
 
-            // Comment validation
-            commentsInput.addEventListener("input", function () {
-                const remaining = maxCommentLength - commentsInput.value.length;
+            // Comments/character validation
+            function updateCharCount() {
+                const remaining = maxComments - commentsInput.value.length;
                 charCount.textContent = `${remaining} characters remaining`;
                 charCount.style.color = remaining < 50 ? "red" : "black";
                 if (remaining < 0) {
-                    commentsError.textContent = "Character limit exceeded.";
-                    commentsInput.value = commentsInput.value.substring(0, maxCommentLength);
+                    showError(commentsInput, "Character limit exceeded.");
+                    commentsInput.value = commentsInput.value.substring(0, maxComments);
                 } else {
-                    commentsError.textContent = "";
+                    clearError(commentsInput);
                 }
-            });
+            }
+
+            nameInput.addEventListener("input", validateName);
+            commentsInput.addEventListener("input", updateCharCount);
 
             // Form validation (before submission)
-            form.addEventListener("submit", function (event) {
-                clearErrors();
-                let hasErrors = false;
+            form.addEventListener("submit", function (e) {
+                formErrors = [];
+                let valid = true;
                 if (!nameInput.checkValidity()) {
-                    nameError.textContent = "Please enter a valid name.";
-                    hasErrors = true;
+                    showError(nameInput, "Please enter a valid name.");
+                    valid = false;
                 }
                 if (!emailInput.checkValidity()) {
-                    emailError.textContent = "Please enter a valid email address.";
-                    hasErrors = true;
+                    showError(emailInput, "Please enter a valid email.");
+                    valid = false;
                 }
                 if (!commentsInput.checkValidity()) {
-                    commentsError.textContent = "Please enter at least 2 characters.";
-                    hasErrors = true;
+                    showError(commentsInput, "Comments must be at least 2 characters.");
+                    valid = false;
                 }
-                if (hasErrors) {
-                    event.preventDefault();
+                if (!valid) {
+                    e.preventDefault();
                 }
+                formErrorsField.value = JSON.stringify(formErrors);
             });
         });
     </script>
