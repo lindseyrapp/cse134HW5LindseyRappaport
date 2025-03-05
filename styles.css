@@ -317,6 +317,28 @@ input:focus, select:focus, textarea:focus {
     box-shadow: 0 0 8px rgba(33, 128, 191, 0.5);
 }
 
+/* Valid input styling */
+input:valid, select:valid, textarea:valid {
+    border-color: #135f92;
+    
+}
+
+/* Invalid input styling */
+input:invalid, select:invalid, textarea:invalid {
+    border-color: #FF5733;
+    
+}
+
+/* Highlight required fields */
+input:required, select:required, textarea:required {
+    border-left: 4px solid var(--accent-color);
+}
+
+/* Placeholder visibility */
+input:placeholder-shown, textarea:placeholder-shown {
+    background-color: #f9f9f9;
+}
+
 button {
     background-color: var(--accent-color);
     color: white;

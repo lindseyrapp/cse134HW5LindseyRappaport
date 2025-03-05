@@ -30,20 +30,20 @@
             </address>
 
             <!-- Contact form -->
-            <form action="https://httpbin.org/post" method="post">
+            <form action="https://httpbin.org/post" method="post" novalidate>
                 <fieldset>
                     <legend><strong>Contact Form</strong></legend>
-                    <label for="name">Name:</label><br>
-                    <input type="text" id="name" name="name" required><br>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required pattern="[A-Za-z\s]+" title="Only letters and spaces allowed"><br>
 
-                    <label for="email">Email:</label><br>
-                    <input type="email" id="email" name="email" required><br>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required minlength="2" maxlength="50"><br>
 
                     <!-- Hidden field for bot detection -->
                     <input type="hidden" name="possible_bot" value="true">
 
                     <!-- Subject selection -->
-                    <label for="subject">Subject (select from dropdown):</label><br>
+                    <label for="subject">Subject (select from dropdown):</label>
                     <select id="subject" name="subject">
                         <optgroup label="Topics">
                             <option value="general">General Inquiry</option>
@@ -54,8 +54,8 @@
                     </select><br>
 
                     <!-- Or allow free text entry -->
-                    <label for="subject-text">Or type your subject:</label><br>
-                    <input list="subjects" id="subject-text" name="subject-text" placeholder="Choose or type a subject">
+                    <label for="subject-text">Or type your subject:</label>
+                    <input list="subjects" id="subject-text" name="subject-text">
                     <datalist id="subjects">
                         <option value="General Inquiry">
                         <option value="Job Opportunity">
@@ -64,7 +64,7 @@
                     </datalist><br>
 
                     <label for="comments">Comments:</label>
-                    <textarea id="comments" name="comments" rows="4" required></textarea><br>
+                    <textarea id="comments" name="comments" rows="4" required minlength="2" maxlength="500" title="Please enter at least 2 characters" placeholder="Write your message here..."></textarea><br>
 
                     <!-- Output elements for validation messages -->
                     <output id="error-message"></output>
