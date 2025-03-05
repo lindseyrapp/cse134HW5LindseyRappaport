@@ -35,16 +35,14 @@
                     <legend><strong>Contact Form</strong></legend>
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" required pattern="[A-Za-z\s]+"
-                        title="Only letters and spaces allowed"><br>
+                        title="Only letters and spaces allowed">
+                    <p class="error-message" id="name-error"></p>
 
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required minlength="2" maxlength="50"><br>
+                    <input type="email" id="email" name="email" required minlength="2" maxlength="50">
+                    <p class="error-message" id="email-error"></p>
 
-                    <!-- Hidden field for bot detection -->
-                    <input type="hidden" name="possible_bot" value="true">
-
-                    <!-- Subject selection -->
-                    <label for="subject">Subject (select from dropdown):</label>
+                    <label for="subject">Subject:</label>
                     <select id="subject" name="subject">
                         <optgroup label="Topics">
                             <option value="general">General Inquiry</option>
@@ -52,26 +50,13 @@
                             <option value="project">Project Collaboration</option>
                             <option value="feedback">Feedback</option>
                         </optgroup>
-                    </select><br>
-
-                    <!-- Or allow free text entry -->
-                    <label for="subject-text">Or type your subject:</label>
-                    <input list="subjects" id="subject-text" name="subject-text">
-                    <datalist id="subjects">
-                        <option value="General Inquiry">
-                        <option value="Job Opportunity">
-                        <option value="Project Collaboration">
-                        <option value="Feedback">
-                    </datalist><br>
+                    </select>
 
                     <label for="comments">Comments:</label>
                     <textarea id="comments" name="comments" rows="4" required minlength="2" maxlength="500"
-                        title="Please enter at least 2 characters"
-                        placeholder="Write your message here..."></textarea><br>
-
-                    <!-- Output elements for validation messages -->
-                    <output id="error-message"></output>
-                    <output id="info-message"></output>
+                        title="Please enter at least 2 characters" placeholder="Write your message here..."></textarea>
+                    <p class="error-message" id="comments-error"></p>
+                    <p class="char-count" id="char-count">500 characters remaining</p>
 
                     <button type="submit">Send</button>
                 </fieldset>
@@ -106,65 +91,65 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Variables
-            const form = document.querySelector("form");
+            const form = document.getElementById("contact-form");
             const nameInput = document.getElementById("name");
             const emailInput = document.getElementById("email");
             const commentsInput = document.getElementById("comments");
-            const errorMessage = document.getElementById("error-message");
-            const infoMessage = document.getElementById("info-message");
-            const formErrors = [];
+            const charCount = document.getElementById("char-count");
+            const nameError = document.getElementById("name-error");
+            const emailError = document.getElementById("email-error");
+            const commentsError = document.getElementById("comments-error");
             const maxCommentLength = 500;
 
-            // Show error message
-            function showErrorMessage(message) {
-                errorMessage.innerHTML += `<p style="color: red; margin: 0;">${message}</p>`;
-            }
-
-            // Clear error message when error is fixed
-            function clearErrorMessage() {
-                errorMessage.innerHTML = "";
+            // Clear errors
+            function clearErrors() {
+                nameError.textContent = "";
+                emailError.textContent = "";
+                commentsError.textContent = "";
             }
 
             // Name validation and masking
             nameInput.addEventListener("input", function (event) {
                 const regex = /^[A-Za-z\s]+$/;
                 if (!regex.test(nameInput.value)) {
-                    showErrorMessage("Only letters and spaces are allowed in the name field.");
+                    nameError.textContent = "Only letters and spaces allowed.";
                     nameInput.value = nameInput.value.replace(/[^A-Za-z\s]/g, "");
                 } else {
-                    clearErrorMessage();
+                    nameError.textContent = "";
                 }
             });
 
             // Comment validation
             commentsInput.addEventListener("input", function () {
                 const remaining = maxCommentLength - commentsInput.value.length;
-                infoMessage.textContent = `${remaining} characters remaining`;
-                infoMessage.style.color = remaining < 50 ? "red" : "black";
+                charCount.textContent = `${remaining} characters remaining`;
+                charCount.style.color = remaining < 50 ? "red" : "black";
                 if (remaining < 0) {
-                    showErrorMessage("Character limit exceeded.");
+                    commentsError.textContent = "Character limit exceeded.";
                     commentsInput.value = commentsInput.value.substring(0, maxCommentLength);
+                } else {
+                    commentsError.textContent = "";
                 }
             });
 
             // Form validation (before submission)
             form.addEventListener("submit", function (event) {
-                formErrors.length = 0;
-                clearErrorMessage();
-
+                clearErrors();
+                let hasErrors = false;
                 if (!nameInput.checkValidity()) {
-                    formErrors.push({ field: "name", message: "Invalid name input." });
+                    nameError.textContent = "Please enter a valid name.";
+                    hasErrors = true;
                 }
                 if (!emailInput.checkValidity()) {
-                    formErrors.push({ field: "email", message: "Invalid email input." });
+                    emailError.textContent = "Please enter a valid email address.";
+                    hasErrors = true;
                 }
                 if (!commentsInput.checkValidity()) {
-                    formErrors.push({ field: "comments", message: "Invalid comment length." });
+                    commentsError.textContent = "Please enter at least 2 characters.";
+                    hasErrors = true;
                 }
-                if (formErrors.length > 0) {
+                if (hasErrors) {
                     event.preventDefault();
-                    showErrorMessage("Please correct errors before submitting.");
-                    console.log("Form Errors:", formErrors);
                 }
             });
         });
