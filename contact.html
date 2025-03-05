@@ -173,25 +173,32 @@
             });
 
             // Form validation (before submission)
-            form.addEventListener("submit", function (e) {
+            form.addEventListener("submit", (e) => {
                 let valid = true;
-                // Reset for new submission
                 formErrors = []; 
+
+                // Validate name
                 if (!nameInput.checkValidity()) {
                     showError(nameInput, "Please enter a valid name.");
                     valid = false;
                 }
+
+                // Validate email, only show error on submit (not every keystroke)
                 if (!emailInput.checkValidity()) {
                     showError(emailInput, "Please enter a valid email address.");
                     valid = false;
                 }
+
+                // Validate comments
                 if (!commentsInput.checkValidity()) {
                     showError(commentsInput, "Please enter at least 2 characters.");
                     valid = false;
                 }
+
                 if (!valid) {
                     e.preventDefault();
                 }
+
                 formErrorsField.value = JSON.stringify(formErrors);
             });
         });
