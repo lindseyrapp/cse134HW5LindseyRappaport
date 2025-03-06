@@ -738,11 +738,11 @@ work-info ul li i {
 
 /* Ensure pre and code blocks don't cause horizontal scrolling */
 pre, code {
-    white-space: pre-wrap; /* Allows wrapping */
-    word-break: break-word; /* Helps break long words if necessary */
-    overflow-wrap: break-word; /* Alternative wrapping */
-    max-width: 100%; /* Keeps it inside the screen */
-    box-sizing: border-box; /* Makes sure padding/borders fit inside the width */
+    white-space: pre-wrap; 
+    word-break: break-word; 
+    overflow-wrap: break-word; 
+    max-width: 100%; 
+    box-sizing: border-box; 
 }
 
 /* Optional - you can target only inside technologies section */
@@ -758,8 +758,8 @@ pre, code {
 /* Ensure the whole technologies div itself fits properly */
 .technologies {
     max-width: 100%;
-    overflow-x: auto;  /* Allow horizontal scroll for very long lines if needed */
-    padding: 0 2vw;  /* Prevent content from touching screen edges */
+    overflow-x: auto;  
+    padding: 0 2vw;  
     box-sizing: border-box;
 }
 
@@ -773,10 +773,10 @@ pre, code {
     margin: 20px 0;
     background: white; 
     color: #333; 
-    position: relative; /* Needed for gradient border positioning */
+    position: relative; 
     display: inline-block; 
     border-radius: 10px; 
-    z-index: 1; /* Text stays on top */
+    z-index: 1; 
 }
 
 .project-title::before {
@@ -788,7 +788,7 @@ pre, code {
     bottom: -5px;
     background: linear-gradient(45deg, #80c5f0, #a3d4f7, #d6f0fc); 
     border-radius: 10px; 
-    z-index: -1; /* Position behind the text */
+    z-index: -1; 
 }
 
 /* Terms & Conditions Dialog Button (Light Mode) */
