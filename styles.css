@@ -934,6 +934,121 @@ dialog button:hover {
     transform: scale(1.05);
 }
 
+/* Keep bio and non-tech stack text at a comfortable size on all screens */
+.bio p, 
+.non-tech-stack p {
+    font-size: 1.5rem; /* Slightly smaller than your default body text */
+    line-height: 1.6;
+    max-width: 90%;
+    text-align: center;
+}
+
+/* Tables - improve overflow handling (per your example) */
+main table {
+    width: 100%;
+    overflow-x: auto;   /* Horizontal scroll if needed */
+    display: block;     /* Helps with responsiveness */
+    box-sizing: border-box;
+    max-width: 100%;    /* Keeps the table inside the page */
+}
+
+/* Captions and blockquote responsiveness */
+table caption, blockquote {
+    max-width: 90%;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Mobile-friendly adjustments for small screens */
+@media (max-width: 768px) {
+    html {
+        font-size: 3vw;   /* Larger base font for readability */
+    }
+
+    body {
+        font-size: 2.8vw;
+    }
+
+    /* Ensure sections fit nicely inside the screen */
+    main, article, section {
+        padding: 4vw 2vw; 
+        width: 100%;
+        box-sizing: border-box; 
+    }
+
+    /* Resize images */
+    .headshot {
+        max-width: 90%;
+    }
+
+    /* Tables - keep horizontal scroll and good font size */
+    main table {
+        font-size: 2.5vw;
+        overflow-x: auto;
+        max-width: 100%;
+    }
+
+    /* Buttons & links */
+    a.download-btn {
+        font-size: 3vw;
+        padding: 3vw;
+    }
+
+    button {
+        font-size: 2.8vw;
+        padding: 2vw;
+    }
+
+    /* Dialog (like terms & conditions) */
+    dialog {
+        max-width: 90%;
+        padding: 3vw;
+        box-sizing: border-box;
+    }
+
+    /* Make sure non-tech stack and bio text doesn't balloon too large */
+    .bio p, 
+    .non-tech-stack p {
+        font-size: 2.5vw; /* Scaled for phones */
+        line-height: 1.5;
+        max-width: 90%;
+        text-align: center;
+    }
+}
+/* Headshot - Desktop Default */
+.headshot {
+    width: 30vw;               /* Scales nicely with screen size */
+    max-width: 300px;          /* Prevents it from getting too big */
+    height: auto;
+    display: block;
+    margin: 2vh auto;          /* Centers it */
+}
+
+/* Medium Screens (Tablets, landscape phones) */
+@media (max-width: 1024px) {
+    .headshot {
+        width: 40vw;
+        max-width: 250px;
+    }
+}
+
+/* Small Screens (Portrait phones) */
+@media (max-width: 768px) {
+    .headshot {
+        width: 55vw;
+        max-width: 220px;
+    }
+}
+
+/* Very Small Phones */
+@media (max-width: 480px) {
+    .headshot {
+        width: 70vw;
+        max-width: 200px;
+    }
+}
+
+
 
 
 
