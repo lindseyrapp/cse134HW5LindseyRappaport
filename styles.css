@@ -15,6 +15,63 @@ html {
     font-size: 1vw;
 }
 
+/* GLOBAL SAFETY RESET TO PREVENT HORIZONTAL SHIFT ON MOBILE */
+html, body {
+    overflow-x: hidden;  /* No horizontal scrolling ever */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Universal element handling to avoid anything accidentally overflowing */
+* {
+    box-sizing: border-box;
+    max-width: 100%;   /* Prevent rogue items from being wider than screen */
+}
+
+/* Main content container (helps center all content) */
+main, section {
+    width: 100%;
+    padding: 0 4vw;  /* Keeps content from hugging screen edges */
+    box-sizing: border-box;
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+/* Blockquotes should stay inside the screen */
+blockquote {
+    max-width: 90%;
+    margin: 0 auto; /* Centers it */
+    word-break: break-word;
+}
+
+/* Tables - maintain horizontal scroll for the table ONLY */
+main table {
+    display: block; /* Ensures table gets scroll if needed */
+    overflow-x: auto;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Non-tech stack and bio sections fit better */
+.bio p, .non-tech-stack p {
+    max-width: 90%;
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Optional: Make aside (Want to Know More section) fit cleanly */
+aside {
+    max-width: 90%;
+    margin: 2vh auto;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+}
+
+
 /* Dark Mode (Night Mode) */
 /* Root variables for dark mode */
 [data-theme="dark"] {
