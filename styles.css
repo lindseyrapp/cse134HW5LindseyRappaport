@@ -734,6 +734,36 @@ work-info ul li i {
     color: var(--accent-color);
 }
 
+/* Fix for code and pre overflow issues in project pages */
+
+/* Ensure pre and code blocks don't cause horizontal scrolling */
+pre, code {
+    white-space: pre-wrap; /* Allows wrapping */
+    word-break: break-word; /* Helps break long words if necessary */
+    overflow-wrap: break-word; /* Alternative wrapping */
+    max-width: 100%; /* Keeps it inside the screen */
+    box-sizing: border-box; /* Makes sure padding/borders fit inside the width */
+}
+
+/* Optional - you can target only inside technologies section */
+.technologies pre, 
+.technologies code {
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Ensure the whole technologies div itself fits properly */
+.technologies {
+    max-width: 100%;
+    overflow-x: auto;  /* Allow horizontal scroll for very long lines if needed */
+    padding: 0 2vw;  /* Prevent content from touching screen edges */
+    box-sizing: border-box;
+}
+
+
 
 .project-title {
     font-size: 2.5vw;
