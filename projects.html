@@ -32,18 +32,14 @@
     <div id="projects-container"></div>
   </section>
 
-  <!-- Global Fullscreen Modal for Viewing Images -->
-  <div id="fullscreen-modal" class="fullscreen-modal">
+  <!-- Global Fullscreen Modal for Viewing Images (hidden by inline style) -->
+  <div id="fullscreen-modal" class="fullscreen-modal" style="display:none;">
     <span id="modal-close">&times;</span>
     <img id="modal-image" class="modal-content">
   </div>
   
   <script src="theme.js"></script>
   <script>
-    // Ensure the modal is hidden on page load
-    document.addEventListener("DOMContentLoaded", () => {
-      document.getElementById("fullscreen-modal").style.display = "none";
-    });
     // Bind the close event for the global modal
     document.getElementById("modal-close").addEventListener("click", () => {
       document.getElementById("fullscreen-modal").style.display = "none";
