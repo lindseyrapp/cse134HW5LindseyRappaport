@@ -2,7 +2,6 @@ class ProjectCard extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
-
         this.shadowRoot.innerHTML = `
             <style>
                 :host {
@@ -17,12 +16,10 @@ class ProjectCard extends HTMLElement {
                     transition: transform 0.3s ease, box-shadow 0.3s ease;
                     text-align: center;
                 }
-
                 :host(:hover) {
                     transform: scale(1.03);
                     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
                 }
-
                 .card {
                     display: flex;
                     flex-direction: column;
@@ -32,22 +29,19 @@ class ProjectCard extends HTMLElement {
                     border-radius: 10px;
                     background: var(--secondary-color);
                 }
-
                 h2 {
-                    font-size: clamp(2.2rem, 3.5vw, 4.2rem); 
+                    font-size: clamp(2.2rem, 3.5vw, 4.2rem);
                     font-weight: bold;
                     margin: 12px 0;
                     color: var(--primary-color);
                     text-align: center;
                 }
-
                 p {
                     font-size: 1.5rem;
                     color: var(--text-color);
                     margin: 10px 0;
                     text-align: center;
                 }
-
                 .screenshots {
                     display: flex;
                     flex-wrap: wrap;
@@ -55,7 +49,6 @@ class ProjectCard extends HTMLElement {
                     gap: 10px;
                     margin: 15px 0;
                 }
-
                 .screenshots img {
                     width: 100px;
                     height: auto;
@@ -63,21 +56,17 @@ class ProjectCard extends HTMLElement {
                     cursor: pointer;
                     transition: transform 0.3s ease;
                 }
-
                 .screenshots img:hover {
                     transform: scale(1.1);
                 }
-
                 .video-container {
                     margin-top: 10px;
                     text-align: center;
                 }
-
                 iframe {
                     width: 100%;
                     border-radius: 10px;
                 }
-
                 a {
                     display: inline-block;
                     margin-top: 10px;
@@ -89,8 +78,8 @@ class ProjectCard extends HTMLElement {
                     border-radius: 5px;
                     transition: background-color 0.3s ease;
                     cursor: pointer;
+                    text-align: center;
                 }
-
                 a:hover {
                     background-color: var(--primary-color);
                 }
@@ -109,60 +98,69 @@ class ProjectCard extends HTMLElement {
             </div>
         `;
     }
-
     connectedCallback() {
-        this.shadowRoot.querySelector('h2').textContent = this.getAttribute('title') || 'Project Name';
-        this.shadowRoot.querySelector('p').textContent = this.getAttribute('description') || 'No description available.';
-        this.shadowRoot.querySelector('.github-link').href = this.getAttribute('github') || '#';
+        const title = this.getAttribute('title') || 'Project Name';
+        const description = this.getAttribute('description') || 'No description available.';
+        const fullDescription = this.getAttribute('full-description') || description;
+        const github = this.getAttribute('github') || '#';
+        const video = this.getAttribute('video') || '';
+        const screenshotsAttr = this.getAttribute('screenshots');
+        const screenshots = screenshotsAttr ? screenshotsAttr.split('|') : [];
+
+        // Set basic content
+        this.shadowRoot.querySelector('h2').textContent = title;
+        this.shadowRoot.querySelector('p').textContent = description;
+        this.shadowRoot.querySelector('.github-link').href = github;
 
         // Populate Technologies
         const techList = this.shadowRoot.querySelector('.technologies');
         (this.getAttribute('technologies') || "").split('|').forEach(tech => {
             if (tech) techList.innerHTML += `<li>${tech}</li>`;
         });
-
         // Populate Responsibilities
         const respList = this.shadowRoot.querySelector('.responsibilities');
         (this.getAttribute('responsibilities') || "").split('|').forEach(resp => {
             if (resp) respList.innerHTML += `<li>${resp}</li>`;
         });
-
         // Load Screenshots
         const screenshotsContainer = this.shadowRoot.querySelector('.screenshots');
-        const screenshots = this.getAttribute('screenshots') ? this.getAttribute('screenshots').split('|') : [];
         if (screenshots.length > 0) {
             screenshots.forEach(src => {
                 let img = document.createElement('img');
                 img.src = src;
-                img.alt = "Project Screenshot";
+                img.alt = `${title} Screenshot`;
                 img.addEventListener("click", () => this.openGlobalModal(src));
                 screenshotsContainer.appendChild(img);
             });
         } else {
             screenshotsContainer.style.display = "none";
         }
-
         // Add YouTube Video if available
-        const videoContainer = this.shadowRoot.querySelector('.video-container');
-        const videoSrc = this.getAttribute('video');
-        if (videoSrc) {
-            videoContainer.innerHTML = `
-                <iframe width="100%" height="200" src="${videoSrc}" 
-                title="Project Video" frameborder="0" allowfullscreen></iframe>`;
+        if (video) {
+            this.shadowRoot.querySelector('.video-container').innerHTML = `
+                <iframe width="100%" height="200" src="${video}" frameborder="0" allowfullscreen></iframe>`;
         }
+        // Handle "Read More" button
+        this.shadowRoot.querySelector('.read-more').addEventListener("click", () => {
+            localStorage.setItem("currentProject", JSON.stringify({
+                title,
+                screenshots: screenshots, // Save the full array of screenshots
+                description: fullDescription, // Use full description for project.html
+                technologies: this.getAttribute('technologies') || '',
+                responsibilities: this.getAttribute('responsibilities') || '',
+                github,
+                video
+            }));
+            window.location.href = "project.html";
+        });
     }
-
     openGlobalModal(imageSrc) {
         const modal = document.getElementById("fullscreen-modal");
         const modalImg = document.getElementById("modal-image");
-        modal.style.display = "flex";
-        modalImg.src = imageSrc;
+        if (modal && modalImg) {
+            modal.style.display = "flex";
+            modalImg.src = imageSrc;
+        }
     }
 }
-
 customElements.define('project-card', ProjectCard);
-
-// Close Modal on Click
-document.getElementById("modal-close").addEventListener("click", () => {
-    document.getElementById("fullscreen-modal").style.display = "none";
-});

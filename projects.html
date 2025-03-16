@@ -1,48 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="project-card.js" defer></script>
-    <script src="project-data.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="project-card.js" defer></script>
+  <script src="project-data.js" defer></script>
 </head>
-
 <body>
-    <nav>
-        <a href="contact.html">Contact</a>
-        <a href="index.html">Home</a>
-        <a href="projects.html" class="active">Projects</a>
-        <button id="theme-toggle" aria-label="Switch to dark mode">🌙</button>
-        <noscript>
-            <p style="font-size: small;">Theme toggle requires JavaScript.</p>
-        </noscript>
-    </nav>
+  <nav>
+    <a href="contact.html">Contact</a>
+    <a href="index.html">Home</a>
+    <a href="projects.html" class="active">Projects</a>
+    <button id="theme-toggle" aria-label="Switch to dark mode">🌙</button>
+    <noscript>
+      <p style="font-size: small;">Theme toggle requires JavaScript.</p>
+    </noscript>
+  </nav>
+  <hr>
+  <h1>Projects</h1>
+  <section>
+    <search>
+      <label for="project-search">Search for a project:</label>
+      <input type="search" id="project-search" name="search" placeholder="Type project name..." aria-label="Search projects">
+    </search>
+  </section>
+  <section>
+    <h2>Featured Projects:</h2>
     <hr>
-    <h1>Projects</h1>
+    <div id="projects-container"></div>
+  </section>
 
-    <section>
-        <search>
-            <label for="project-search">Search for a project:</label>
-            <input type="search" id="project-search" name="search" placeholder="Type project name..."
-                aria-label="Search projects">
-        </search>
-    </section>
-
-    <section>
-        <h2>Featured Projects:</h2>
-        <hr>
-        <div id="projects-container"></div>
-    </section>
-
-    <!-- Global Fullscreen Modal for Viewing Images -->
-    <div id="fullscreen-modal" class="fullscreen-modal">
-        <span id="modal-close">&times;</span>
-        <img id="modal-image" class="modal-content">
-    </div>
-    <script src="theme.js"></script>
+  <!-- Global Fullscreen Modal for Viewing Images -->
+  <div id="fullscreen-modal" class="fullscreen-modal">
+    <span id="modal-close">&times;</span>
+    <img id="modal-image" class="modal-content">
+  </div>
+  
+  <script src="theme.js"></script>
+  <script>
+    // Ensure the modal is hidden on page load
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("fullscreen-modal").style.display = "none";
+    });
+    // Bind the close event for the global modal
+    document.getElementById("modal-close").addEventListener("click", () => {
+      document.getElementById("fullscreen-modal").style.display = "none";
+    });
+  </script>
 </body>
-
 </html>

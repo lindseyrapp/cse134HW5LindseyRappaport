@@ -1,19 +1,20 @@
 [
     {
         "title": "Developer Journal",
-        "screenshotPrefix": "proj1demo",
-        "screenshotCount": 4,
-        "alt": "Screenshot of Developer Journal",
-        "description": "A developer-focused journal app with task tracking and progress visualization.",
+        "description": "A short description for the card.",
+        "fullDescription": "Co-led a team of 12 in an Agile environment to develop a developer journal application enabling task tracking, progress visualization, and project organization for developers. Managed task assignments, repository updates, and code reviews. Wrote user stories, ADRs, CI/CD materials, and E2E tests; filmed/edited project videos and co-presented the final pitch.",
         "github": "https://github.com/cse110-sp24-group12/cse110-sp24-group12",
-        "technologies": "Electron|JavaScript|GitHub|Markdown|CI/CD",
-        "responsibilities": "Wrote CI/CD materials|Developed E2E tests|Managed repository|Led team meetings|Filmed project videos",
-        "video": "https://www.youtube.com/embed/bcrQLURp_nw?si=s4hvcZnzuA6UG7Af"
+        "technologies": "Electron and Other Dependencies|HTML, CSS, JavaScript|Git/Github",
+        "responsibilities": "Planned/wrote team contract|Filmed demo videos, team videos, etc.|Edited and uploaded all videos|Wrote SWOT analysis|Assigned tasks/roles to team|Reviewed & approved pull requests|Helped write pitch document|Presented pitch|Contributed to brainstorm boards|Updated GitHub repository|Attended/helped run all meetings|Wrote ADR's for project decisions|Wrote cicd markdown page|Wrote user stories|Planned/wrote E2E tests for dashboard & password page|Reviewed/revised code and assisted with debugging",
+        "video": "https://www.youtube.com/embed/bcrQLURp_nw",
+        "screenshotPrefix": "proj1demo",
+        "screenshotCount": 4
     },
     {
         "title": "Project 2",
         "alt": "Preview of Project 2",
         "description": "An upcoming personal project with exciting features...",
+        "fullDescription": "There will be a full description here eventually...",
         "github": "https://github.com/example/project2",
         "technologies": "To be described here",
         "responsibilities": "To be described here"

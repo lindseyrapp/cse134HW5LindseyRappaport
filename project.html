@@ -1,41 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Details</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Details</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Additional styles for the full project details page */
+    #project-details {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      text-align: center;
+      font-family: var(--font-choice), sans-serif;
+      justify-items: center;
+    }
+    #project-details h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    #project-details .screenshots {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+      justify-items: center;
+    }
+    #project-details .screenshots img {
+      width: 100%;
+      border-radius: 5px;
+    }
+    #project-details p {
+      font-size: 1.6rem;
+      line-height: 1.6;
+      margin: 20px auto;
+      text-align: center;
+    }
+    #project-details h2 {
+      font-size: 2.5rem;
+      margin: 20px 0 10px;
+    }
+    #project-details a.button {
+      display: inline-block;
+      margin: 20px auto;
+      padding: 12px 24px;
+      background-color: var(--accent-color);
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    #project-details a.button:hover {
+      background-color: var(--primary-color);
+    }
+    #project-details iframe {
+      margin: 20px auto;
+      max-width: 100%;
+      border-radius: 10px;
+    }
+  </style>
 </head>
-
 <body>
-    <nav>
-        <a href="projects.html">Back to Projects</a>
-    </nav>
-    <hr>
-    <div id="project-details"></div>
+  <nav>
+    <a href="projects.html">Back to Projects</a>
+  </nav>
+  <hr>
+  <div id="project-details"></div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const project = JSON.parse(localStorage.getItem("currentProject"));
-            if (!project) {
-                document.getElementById("project-details").innerHTML = "<p>No project found.</p>";
-                return;
-            }
-
-            document.getElementById("project-details").innerHTML = `
-                <h1>${project.title}</h1>
-                <img src="${project.image}" alt="${project.alt}" />
-                <p>${project.description}</p>
-                <h2>Technologies Used:</h2>
-                <p>${project.technologies.replace(/\|/g, ', ')}</p>
-                <h2>Responsibilities:</h2>
-                <p>${project.responsibilities.replace(/\|/g, ', ')}</p>
-                <a href="${project.github}" target="_blank">GitHub Repository</a>
-                ${project.video ? `<iframe width="560" height="315" src="${project.video}" frameborder="0" allowfullscreen></iframe>` : ""}
-            `;
-        });
-    </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const project = JSON.parse(localStorage.getItem("currentProject"));
+      if (!project) {
+        document.getElementById("project-details").innerHTML = "<p>No project found.</p>";
+        return;
+      }
+      
+      // If multiple screenshots are stored, display them in a grid.
+      let screenshotsHTML = "";
+      if (project.screenshots && Array.isArray(project.screenshots) && project.screenshots.length > 0) {
+        screenshotsHTML = `<div class="screenshots">
+          ${project.screenshots.map(src => `<img src="${src}" alt="${project.title} screenshot">`).join('')}
+        </div>`;
+      }
+      
+      document.getElementById("project-details").innerHTML = `
+        <h1>${project.title}</h1>
+        ${screenshotsHTML}
+        <p>${project.description}</p>
+        <h2>Technologies Used:</h2>
+        <p>${project.technologies.replace(/\|/g, ', ')}</p>
+        <h2>Responsibilities:</h2>
+        <p>${project.responsibilities.replace(/\|/g, ', ')}</p>
+        <a class="button" href="${project.github}" target="_blank">GitHub Repository</a>
+        ${project.video ? `<iframe width="560" height="315" src="${project.video}" frameborder="0" allowfullscreen></iframe>` : ""}
+      `;
+    });
+  </script>
 </body>
-
 </html>
