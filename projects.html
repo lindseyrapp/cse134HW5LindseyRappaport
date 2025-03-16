@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="project-card.js" defer></script>
+    <script src="project-data.js" defer></script>
 </head>
 
 <body>
@@ -20,6 +22,7 @@
     </nav>
     <hr>
     <h1>Projects</h1>
+
     <section>
         <search>
             <label for="project-search">Search for a project:</label>
@@ -31,117 +34,14 @@
     <section>
         <h2>Featured Projects:</h2>
         <hr>
-        <article>
-            <div class="project-title">
-                <h3>Group Project: Developer Journal</h3>
-                <p><dfn title="Project setting">CSE 110, Spring 2024 UCSD</dfn></p>
-            </div>
-            <div class="project-role">
-                <h3>Role: Co-Leader</h3>
-            </div>
-            <div class="project-overview">
-                <p>Co-led a team of 12 in an Agile environment to develop a developer journal application enabling task
-                    tracking, progress visualization, and project organization for developers. Managed task assignments,
-                    repository updates, and code reviews. Wrote user stories, ADRs, CI/CD materials, and E2E tests;
-                    filmed/edited project videos and co-presented the final pitch.</p>
-            </div>
-            <p><a href="https://github.com/cse110-sp24-group12/cse110-sp24-group12?tab=readme-ov-file"
-                    target="_blank">Github Repository Link</a></p>
-            <figure>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/bcrQLURp_nw?si=s4hvcZnzuA6UG7Af"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <figcaption>Video Demo: A walk-through of our project features and functionality.</figcaption>
-            </figure>
-            <!-- Technologies Used Section -->
-            <div class="technologies">
-                <h2>Notable Technologies and Tools Used:</h2>
-                <dl>
-                    <dt>
-                        <pre><span title="Tech 1">Electron and Other Dependencies</span></pre>
-                    </dt>
-                    <dd>Used Electron as a wrapper as well as the following dependencies:
-                        <code><pre>
-                            import { app, BrowserWindow, ipcMain } from 'electron';
-                            import path from 'node:path';
-                            import fs from 'fs';
-                            import markdown from 'markdown-it';
-                            import taskLists from 'markdown-it-task-lists';
-                            import hljs from 'highlight.js';
-                            import CryptoJS from 'crypto-js';
-                        </pre>
-                        </code>
-                    </dd>
-                    <dt>
-                        <pre><span title="Tech 2">HTML, CSS, JavaScript</span></pre>
-                    </dt>
-                    <dd>Used for front-end and back-end development </dd>
-                    <dt>
-                        <pre><span title="Tech 3">Git/Github</span></pre>
-                    </dt>
-                    <dd>Used to build and organize project </dd>
-                </dl>
-            </div>
-
-            <!-- Responsibilities Section -->
-            <div class="responsibilities">
-                <h2>My Responsibilities</h2>
-                <ol>
-                    <li>Planned/wrote team contract </li>
-                    <li>Filmed demo videos, team videos, etc. </li>
-                    <li>Edited and uploaded all videos </li>
-                    <li>Wrote SWOT analysis </li>
-                    <li>Assigned tasks/roles to team </li>
-                    <li>Reviewed & approved pull requests </li>
-                    <li>Helped write pitch document </li>
-                    <li>Presented pitch </li>
-                    <li>Contributed to brainstorm boards </li>
-                    <li>Updated GitHub repository </li>
-                    <li>Attended/helped run all meetings </li>
-                    <li>Wrote ADR's for project decisions </li>
-                    <li>Wrote cicd markdown page </li>
-                    <li>Wrote user stories </li>
-                    <li>Planned/wrote E2E tests for dashboard & password page </li>
-                    <li>Reviewed/revised code and assisted with debugging </li>
-                </ol>
-            </div>
-        </article>
-
-        <hr>
-        <article>
-            <div class="project-title">
-                <hgroup>
-                    <h3>Project: Project 2</h3>
-                    <p><dfn title="Project setting">Personal project</dfn></p>
-                </hgroup>
-            </div>
-
-            <div class="project-role">
-                <h3>Role: <del>Previous role</del> <ins>Current role</ins></h3>
-            </div>
-
-            <div class="project-overview">
-                <p>Description of project will be here...</p>
-
-                <!-- Audio demo -->
-                <h4>Audio Demo will be here when I have an audio to use:</h4>
-                <audio controls>
-                    <source src="demo-audio.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-
-                <!-- Video demo -->
-                <h4>Video Demo will be here when I have a video to use:</h4>
-                <video controls width="320" height="240">
-                    <source src="demo-video.mp4" type="video/mp4">
-                    <source src="demo-video.ogg" type="video/ogg">
-                    Your browser does not support the video element.
-                </video>
-            </div>
-        </article>
-
+        <div id="projects-container"></div>
     </section>
+
+    <!-- Global Fullscreen Modal for Viewing Images -->
+    <div id="fullscreen-modal" class="fullscreen-modal">
+        <span id="modal-close">&times;</span>
+        <img id="modal-image" class="modal-content">
+    </div>
     <script src="theme.js"></script>
 </body>
 

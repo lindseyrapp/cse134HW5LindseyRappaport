@@ -1,0 +1,21 @@
+[
+    {
+        "title": "Developer Journal",
+        "screenshotPrefix": "proj1demo",
+        "screenshotCount": 4,
+        "alt": "Screenshot of Developer Journal",
+        "description": "A developer-focused journal app with task tracking and progress visualization.",
+        "github": "https://github.com/cse110-sp24-group12/cse110-sp24-group12",
+        "technologies": "Electron|JavaScript|GitHub|Markdown|CI/CD",
+        "responsibilities": "Wrote CI/CD materials|Developed E2E tests|Managed repository|Led team meetings|Filmed project videos",
+        "video": "https://www.youtube.com/embed/bcrQLURp_nw?si=s4hvcZnzuA6UG7Af"
+    },
+    {
+        "title": "Project 2",
+        "alt": "Preview of Project 2",
+        "description": "An upcoming personal project with exciting features...",
+        "github": "https://github.com/example/project2",
+        "technologies": "To be described here",
+        "responsibilities": "To be described here"
+    }
+]

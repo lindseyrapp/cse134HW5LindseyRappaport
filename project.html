@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav>
+        <a href="projects.html">Back to Projects</a>
+    </nav>
+    <hr>
+    <div id="project-details"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const project = JSON.parse(localStorage.getItem("currentProject"));
+            if (!project) {
+                document.getElementById("project-details").innerHTML = "<p>No project found.</p>";
+                return;
+            }
+
+            document.getElementById("project-details").innerHTML = `
+                <h1>${project.title}</h1>
+                <img src="${project.image}" alt="${project.alt}" />
+                <p>${project.description}</p>
+                <h2>Technologies Used:</h2>
+                <p>${project.technologies.replace(/\|/g, ', ')}</p>
+                <h2>Responsibilities:</h2>
+                <p>${project.responsibilities.replace(/\|/g, ', ')}</p>
+                <a href="${project.github}" target="_blank">GitHub Repository</a>
+                ${project.video ? `<iframe width="560" height="315" src="${project.video}" frameborder="0" allowfullscreen></iframe>` : ""}
+            `;
+        });
+    </script>
+</body>
+
+</html>
