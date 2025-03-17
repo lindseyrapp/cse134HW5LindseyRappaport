@@ -44,6 +44,16 @@
       font-size: 2.5rem;
       margin: 20px 0 10px;
     }
+    #project-details ul {
+      text-align: left;
+      font-size: 1.6rem;
+      margin: 20px auto;
+      max-width: 80%;
+      padding-left: 20px;
+    }
+    #project-details ul li {
+      margin-bottom: 10px;
+    }
     #project-details a.button {
       display: inline-block;
       margin: 20px auto;
@@ -76,7 +86,7 @@
   <hr>
   <div id="project-details"></div>
 
-  <!-- Global Fullscreen Modal for Viewing Images (hidden by inline style) -->
+  <!-- Global Fullscreen Modal for Viewing Images -->
   <div id="fullscreen-modal" class="fullscreen-modal" style="display:none;">
     <span id="modal-close">&times;</span>
     <img id="modal-image" class="modal-content">
@@ -100,7 +110,14 @@
           ${project.screenshots.map(src => `<img src="${src}" alt="${project.title} screenshot">`).join('')}
         </div>`;
       }
-      
+
+      // Convert responsibilities into a list
+      let responsibilitiesHTML = "<ul>";
+      if (project.responsibilities) {
+        responsibilitiesHTML += project.responsibilities.split('|').map(task => `<li>${task}</li>`).join('');
+      }
+      responsibilitiesHTML += "</ul>";
+
       document.getElementById("project-details").innerHTML = `
         <h1>${project.title}</h1>
         ${screenshotsHTML}
@@ -108,7 +125,7 @@
         <h2>Technologies Used:</h2>
         <p>${project.technologies.replace(/\|/g, ', ')}</p>
         <h2>Responsibilities:</h2>
-        <p>${project.responsibilities.replace(/\|/g, ', ')}</p>
+        ${responsibilitiesHTML}
         <a class="button" href="${project.github}" target="_blank">GitHub Repository</a>
         ${project.video ? `<iframe width="560" height="315" src="${project.video}" frameborder="0" allowfullscreen></iframe>` : ""}
       `;
@@ -128,7 +145,7 @@
       document.getElementById("modal-close").addEventListener("click", () => {
         document.getElementById("fullscreen-modal").style.display = "none";
       });
-      
+
       // Clear stored project data so it doesn't persist when returning to projects page.
       localStorage.removeItem("currentProject");
     });

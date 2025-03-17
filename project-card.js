@@ -7,7 +7,7 @@ class ProjectCard extends HTMLElement {
                 :host {
                     display: block;
                     width: 100%;
-                    max-width: 800px;
+                    max-width: 900px; /* Wider default */
                     margin: 10px auto;
                     border-radius: 10px;
                     overflow: hidden;
@@ -35,7 +35,7 @@ class ProjectCard extends HTMLElement {
                     
                 @media (min-width: 1200px) {
                     :host {
-                        max-width: 900px; /* Even wider on larger screens */
+                        max-width: 1000px; /* Extra wide on big screens */
                     }
                 }
                 h2 {
@@ -52,14 +52,17 @@ class ProjectCard extends HTMLElement {
                     text-align: center;
                 }
                 .screenshots {
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: center;
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr); /* Always 2x2 */
                     gap: 10px;
                     margin: 15px 0;
+                    justify-items: center;
+                    width: 100%;
+                    max-width: 500px;
                 }
                 .screenshots img {
-                    width: 100px;
+                    width: 100%;
+                    max-width: 200px;
                     height: auto;
                     border-radius: 5px;
                     cursor: pointer;
@@ -71,44 +74,70 @@ class ProjectCard extends HTMLElement {
                 .video-container {
                     margin-top: 10px;
                     text-align: center;
+                    width: 100%;
                 }
                 iframe {
                     width: 100%;
                     border-radius: 10px;
                 }
-                a {
+                .button-container {
+                    display: flex;
+                    justify-content: center;
+                    gap: 10px;
+                    margin-top: 15px;
+                    width: 100%;
+                    max-width: 500px;
+                }
+                .button-container a {
                     display: inline-block;
-                    margin-top: 10px;
-                    padding: 10px 15px;
-                    color: white;
-                    background-color: var(--accent-color);
+                    padding: 12px 18px;
                     text-decoration: none;
                     font-weight: bold;
                     font-size: 1.5rem;
                     border-radius: 5px;
-                    transition: background-color 0.3s ease;
-                    cursor: pointer;
+                    transition: background-color 0.3s ease, transform 0.2s ease;
                     text-align: center;
+                    flex: 1; /* Make buttons equal width */
                 }
-                a:hover {
+                .github-link {
                     background-color: var(--primary-color);
+                    color: white;
+                }
+                .github-link:hover {
+                    background-color: #1a5276;
+                    transform: scale(1.05);
+                }
+                .read-more {
+                    background-color: var(--accent-color);
+                    color: white;
+                }
+                .read-more:hover {
+                    background-color: #135f92;
+                    transform: scale(1.05);
                 }
 
+                /* Night mode fixes */
+                [data-theme="dark"] .github-link {
+                    background-color: var(--accent-color);
+                    color: black;
+                }
+                [data-theme="dark"] .github-link:hover {
+                    background-color: #3a98c5;
+                }
             </style>
             <div class="card">
                 <h2></h2>
+                <p class="short-description"></p>
                 <div class="screenshots"></div>
                 <div class="video-container"></div>
-                <p></p>
-                <h3>Technologies Used:</h3>
-                <ul class="technologies"></ul>
-                <h3>Responsibilities:</h3>
-                <ul class="responsibilities"></ul>
-                <p><a class="github-link" href="" target="_blank">GitHub Repository</a></p>
-                <a class="read-more">Read More</a>
+                <div class="button-container">
+                    <a class="github-link" href="" target="_blank">GitHub</a>
+                    <a class="read-more">Read More</a>
+                </div>
             </div>
         `;
     }
+
     connectedCallback() {
         const title = this.getAttribute('title') || 'Project Name';
         const description = this.getAttribute('description') || 'No description available.';
@@ -120,19 +149,9 @@ class ProjectCard extends HTMLElement {
 
         // Set basic content
         this.shadowRoot.querySelector('h2').textContent = title;
-        this.shadowRoot.querySelector('p').textContent = description;
+        this.shadowRoot.querySelector('.short-description').textContent = description;
         this.shadowRoot.querySelector('.github-link').href = github;
 
-        // Populate Technologies
-        const techList = this.shadowRoot.querySelector('.technologies');
-        (this.getAttribute('technologies') || "").split('|').forEach(tech => {
-            if (tech) techList.innerHTML += `<li>${tech}</li>`;
-        });
-        // Populate Responsibilities
-        const respList = this.shadowRoot.querySelector('.responsibilities');
-        (this.getAttribute('responsibilities') || "").split('|').forEach(resp => {
-            if (resp) respList.innerHTML += `<li>${resp}</li>`;
-        });
         // Load Screenshots
         const screenshotsContainer = this.shadowRoot.querySelector('.screenshots');
         if (screenshots.length > 0) {
@@ -146,11 +165,13 @@ class ProjectCard extends HTMLElement {
         } else {
             screenshotsContainer.style.display = "none";
         }
+
         // Add YouTube Video if available
         if (video) {
             this.shadowRoot.querySelector('.video-container').innerHTML = `
                 <iframe width="100%" height="200" src="${video}" frameborder="0" allowfullscreen></iframe>`;
         }
+
         // Handle "Read More" button
         this.shadowRoot.querySelector('.read-more').addEventListener("click", () => {
             localStorage.setItem("currentProject", JSON.stringify({
@@ -165,6 +186,7 @@ class ProjectCard extends HTMLElement {
             window.location.href = "project.html";
         });
     }
+
     openGlobalModal(imageSrc) {
         const modal = document.getElementById("fullscreen-modal");
         const modalImg = document.getElementById("modal-image");
@@ -174,4 +196,5 @@ class ProjectCard extends HTMLElement {
         }
     }
 }
+
 customElements.define('project-card', ProjectCard);
