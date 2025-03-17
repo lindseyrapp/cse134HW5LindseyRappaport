@@ -1,124 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Details</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    /* Styles for the full project details page */
-    #project-details {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      text-align: center;
-      font-family: var(--font-choice), sans-serif;
-    }
-    #project-details h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
-    #project-details .screenshots {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 15px;
-      margin: 20px 0;
-      justify-items: center;
-    }
-    #project-details .screenshots img {
-      width: 100%;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-    #project-details .screenshots img:hover {
-      transform: scale(1.1);
-    }
-    #project-details p {
-      font-size: 1.6rem;
-      line-height: 1.6;
-      margin: auto;
-      text-align: center;
-    }
-    #project-details h2 {
-      font-size: 2.5rem;
-      margin: 20px 0 10px;
-    }
-    #project-details ul {
-      text-align: left;
-      font-size: 1.6rem;
-      margin: 20px auto;
-      max-width: 80%;
-      padding-left: 20px;
-    }
-    #project-details ul li {
-      margin-bottom: 10px;
-    }
-    #project-details a.button {
-      display: inline-block;
-      margin: 20px auto;
-      padding: 12px 24px;
-      background-color: var(--accent-color);
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
-    #project-details a.button:hover {
-      background-color: var(--primary-color);
-    }
-    #project-details iframe {
-      margin: 20px auto;
-      max-width: 100%;
-      border-radius: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Styles for the full project details page */
+        #project-details {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            text-align: center;
+            font-family: var(--font-choice), sans-serif;
+        }
+
+        #project-details h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        #project-details .screenshots {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+            justify-items: center;
+        }
+
+        #project-details .screenshots img {
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        #project-details .screenshots img:hover {
+            transform: scale(1.1);
+        }
+
+        #project-details p {
+            font-size: 1.6rem;
+            line-height: 1.6;
+            margin: auto;
+            text-align: center;
+        }
+
+        #project-details h2 {
+            font-size: 2.5rem;
+            margin: 20px 0 10px;
+        }
+
+        #project-details ul {
+            text-align: left;
+            font-size: 1.6rem;
+            margin: 20px auto;
+            max-width: 80%;
+            padding-left: 20px;
+        }
+
+        #project-details ul li {
+            margin-bottom: 10px;
+        }
+
+        #project-details a.button {
+            display: inline-block;
+            margin: 20px auto;
+            padding: 12px 24px;
+            background-color: var(--accent-color);
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        #project-details a.button:hover {
+            background-color: var(--primary-color);
+        }
+
+        #project-details iframe {
+            margin: 20px auto;
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        [data-theme="dark"] #project-details a.button {
+            background-color: var(--accent-color) !important;
+            color: white !important;
+        }
+
+        [data-theme="dark"] #project-details a.button:hover {
+            background-color: #135f92 !important;
+        }
+    </style>
 </head>
+
 <body>
-  <nav>
-    <a href="projects.html">Back to Projects</a>
-    <button id="theme-toggle" aria-label="Switch to dark mode">🌙</button>
-    <noscript>
-      <p style="font-size: small;">Theme toggle requires JavaScript.</p>
-    </noscript>
-  </nav>
-  <hr>
-  <div id="project-details"></div>
+    <nav>
+        <a href="projects.html">Back to Projects</a>
+        <button id="theme-toggle" aria-label="Switch to dark mode">🌙</button>
+        <noscript>
+            <p style="font-size: small;">Theme toggle requires JavaScript.</p>
+        </noscript>
+    </nav>
+    <hr>
+    <div id="project-details"></div>
 
-  <!-- Global Fullscreen Modal for Viewing Images -->
-  <div id="fullscreen-modal" class="fullscreen-modal" style="display:none;">
-    <span id="modal-close">&times;</span>
-    <img id="modal-image" class="modal-content">
-  </div>
+    <!-- Global Fullscreen Modal for Viewing Images -->
+    <div id="fullscreen-modal" class="fullscreen-modal" style="display:none;">
+        <span id="modal-close">&times;</span>
+        <img id="modal-image" class="modal-content">
+    </div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // Ensure the modal is hidden on load
-      document.getElementById("fullscreen-modal").style.display = "none";
-      
-      const project = JSON.parse(localStorage.getItem("currentProject"));
-      if (!project) {
-        document.getElementById("project-details").innerHTML = "<p>No project found.</p>";
-        return;
-      }
-      
-      // Build screenshots grid if multiple screenshots exist.
-      let screenshotsHTML = "";
-      if (project.screenshots && Array.isArray(project.screenshots) && project.screenshots.length > 0) {
-        screenshotsHTML = `<div class="screenshots">
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Ensure the modal is hidden on load
+            document.getElementById("fullscreen-modal").style.display = "none";
+
+            const project = JSON.parse(localStorage.getItem("currentProject"));
+            if (!project) {
+                document.getElementById("project-details").innerHTML = "<p>No project found.</p>";
+                return;
+            }
+
+            // Build screenshots grid if multiple screenshots exist.
+            let screenshotsHTML = "";
+            if (project.screenshots && Array.isArray(project.screenshots) && project.screenshots.length > 0) {
+                screenshotsHTML = `<div class="screenshots">
           ${project.screenshots.map(src => `<img src="${src}" alt="${project.title} screenshot">`).join('')}
         </div>`;
-      }
+            }
 
-      // Convert responsibilities into a list
-      let responsibilitiesHTML = "<ul>";
-      if (project.responsibilities) {
-        responsibilitiesHTML += project.responsibilities.split('|').map(task => `<li>${task}</li>`).join('');
-      }
-      responsibilitiesHTML += "</ul>";
+            // Convert responsibilities into a list
+            let responsibilitiesHTML = "<ul>";
+            if (project.responsibilities) {
+                responsibilitiesHTML += project.responsibilities.split('|').map(task => `<li>${task}</li>`).join('');
+            }
+            responsibilitiesHTML += "</ul>";
 
-      document.getElementById("project-details").innerHTML = `
+            document.getElementById("project-details").innerHTML = `
         <h1>${project.title}</h1>
         ${screenshotsHTML}
         <p>${project.description}</p>
@@ -129,27 +151,28 @@
         <a class="button" href="${project.github}" target="_blank">GitHub Repository</a>
         ${project.video ? `<iframe width="560" height="315" src="${project.video}" frameborder="0" allowfullscreen></iframe>` : ""}
       `;
-      
-      // Attach click events to screenshots so they open in the fullscreen modal.
-      const screenshots = document.querySelectorAll("#project-details .screenshots img");
-      screenshots.forEach(img => {
-        img.addEventListener("click", () => {
-          const modal = document.getElementById("fullscreen-modal");
-          const modalImg = document.getElementById("modal-image");
-          modal.style.display = "flex";
-          modalImg.src = img.src;
-        });
-      });
-      
-      // Bind close event for the modal.
-      document.getElementById("modal-close").addEventListener("click", () => {
-        document.getElementById("fullscreen-modal").style.display = "none";
-      });
 
-      // Clear stored project data so it doesn't persist when returning to projects page.
-      localStorage.removeItem("currentProject");
-    });
-  </script>
-  <script src="theme.js"></script>
+            // Attach click events to screenshots so they open in the fullscreen modal.
+            const screenshots = document.querySelectorAll("#project-details .screenshots img");
+            screenshots.forEach(img => {
+                img.addEventListener("click", () => {
+                    const modal = document.getElementById("fullscreen-modal");
+                    const modalImg = document.getElementById("modal-image");
+                    modal.style.display = "flex";
+                    modalImg.src = img.src;
+                });
+            });
+
+            // Bind close event for the modal.
+            document.getElementById("modal-close").addEventListener("click", () => {
+                document.getElementById("fullscreen-modal").style.display = "none";
+            });
+
+            // Clear stored project data so it doesn't persist when returning to projects page.
+            localStorage.removeItem("currentProject");
+        });
+    </script>
+    <script src="theme.js"></script>
 </body>
+
 </html>
