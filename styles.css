@@ -1267,6 +1267,31 @@ table caption, blockquote {
     color: white;
 }
 
+/* Styling for Load Local & Load Remote buttons */
+#load-local, #load-remote {
+    font-family: var(--font-choice); /* Matches site font */
+    font-size: 2vw; /* Matches other buttons */
+    font-weight: bold;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 2vw 3vw;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin: 1vw; /* Adds space between buttons */
+}
+
+#load-local:hover, #load-remote:hover {
+    background-color: #135f92;
+    transform: scale(1.05);
+}
+
+#load-local:active, #load-remote:active {
+    background-color: #114165;
+}
+
+
 
 /* DEBUG
 * {
