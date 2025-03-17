@@ -791,11 +791,11 @@ pre, code {
 
 #projects-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Ensures 2 columns when space allows */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Ensures 2 columns when space allows */
     gap: 20px;
     padding: 10px;
     justify-items: center;
-    max-width: 900px; /* Keeps the grid from stretching too wide */
+    max-width: 100%; /* Keeps the grid from stretching too wide */
     margin: 0 auto; /* Centers the grid on the page */
 }
 
