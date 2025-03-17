@@ -1,58 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="project-card.js" defer></script>
-  <script src="project-data.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <!-- Favicon for most browsers -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+
+    <!-- Apple Touch Icon (for iOS) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+    <!-- Android Chrome Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+
+    <!-- Web App Manifest (for PWA support) -->
+    <link rel="manifest" href="site.webmanifest">
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="project-card.js" defer></script>
+    <script src="project-data.js" defer></script>
 </head>
+
 <body>
-  <nav>
-    <a href="contact.html">Contact</a>
-    <a href="index.html">Home</a>
-    <a href="projects.html" class="active">Projects</a>
-    <button id="theme-toggle" aria-label="Switch to dark mode">🌙</button>
-    <noscript>
-      <p style="font-size: small;">Theme toggle requires JavaScript.</p>
-    </noscript>
-  </nav>
-  <hr>
-
-  <h1>Projects</h1>
-
-  <!-- Buttons for loading data -->
-  <section>
-    <button id="load-local">Load Local</button>
-    <button id="load-remote">Load Remote</button>
-  </section>
-
-  <!-- Search Section -->
-  <section class="search-container">
-    <label for="project-search">Search for a project:</label>
-    <input type="search" id="project-search" name="search" placeholder="Type project name..." aria-label="Search projects">
-    <div id="search-results"></div> <!-- Dropdown container -->
-  </section>  
-
-  <section>
-    <h2>Featured Projects:</h2>
+    <nav>
+        <a href="contact.html">Contact</a>
+        <a href="index.html">Home</a>
+        <a href="projects.html" class="active">Projects</a>
+        <button id="theme-toggle" aria-label="Switch to dark mode">🌙</button>
+        <noscript>
+            <p style="font-size: small;">Theme toggle requires JavaScript.</p>
+        </noscript>
+    </nav>
     <hr>
-    <div id="projects-container"></div>
-  </section>
 
-  <!-- Global Fullscreen Modal for Viewing Images -->
-  <div id="fullscreen-modal" class="fullscreen-modal" style="display:none;">
-    <span id="modal-close">&times;</span>
-    <img id="modal-image" class="modal-content">
-  </div>
+    <h1>Projects</h1>
 
-  <script src="theme.js"></script>
-  <script>
-    // Close event for the modal
-    document.getElementById("modal-close").addEventListener("click", () => {
-      document.getElementById("fullscreen-modal").style.display = "none";
-    });
-  </script>
+    <!-- Buttons for loading data -->
+    <section>
+        <button id="load-local">Load Local</button>
+        <button id="load-remote">Load Remote</button>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-container">
+        <label for="project-search">Search for a project:</label>
+        <input type="search" id="project-search" name="search" placeholder="Type project name..."
+            aria-label="Search projects">
+        <div id="search-results"></div> <!-- Dropdown container -->
+    </section>
+
+    <section>
+        <h2>Featured Projects:</h2>
+        <hr>
+        <div id="projects-container"></div>
+    </section>
+
+    <!-- Global Fullscreen Modal for Viewing Images -->
+    <div id="fullscreen-modal" class="fullscreen-modal" style="display:none;">
+        <span id="modal-close">&times;</span>
+        <img id="modal-image" class="modal-content">
+    </div>
+
+    <script src="theme.js"></script>
+    <script>
+        // Close event for the modal
+        document.getElementById("modal-close").addEventListener("click", () => {
+            document.getElementById("fullscreen-modal").style.display = "none";
+        });
+    </script>
 </body>
+
 </html>
