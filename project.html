@@ -68,6 +68,10 @@
 <body>
   <nav>
     <a href="projects.html">Back to Projects</a>
+    <button id="theme-toggle" aria-label="Switch to dark mode">🌙</button>
+    <noscript>
+      <p style="font-size: small;">Theme toggle requires JavaScript.</p>
+    </noscript>
   </nav>
   <hr>
   <div id="project-details"></div>
@@ -129,5 +133,6 @@
       localStorage.removeItem("currentProject");
     });
   </script>
+  <script src="theme.js"></script>
 </body>
 </html>
