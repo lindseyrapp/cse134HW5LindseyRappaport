@@ -658,7 +658,7 @@ a.download-btn {
     padding: 1.5vw 3vw;
     border-radius: 5px; 
     text-align: center;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+    transition: background-color 0.3s ease, transform 0.2s ease; 
 }
 
 a.download-btn:hover {
@@ -734,7 +734,6 @@ work-info ul li i {
     color: var(--accent-color);
 }
 
-/* Fix for code and pre overflow issues in project pages */
 
 /* Ensure pre and code blocks don't cause horizontal scrolling */
 pre, code {
@@ -791,15 +790,14 @@ pre, code {
 
 #projects-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Ensures 2 columns when space allows */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
     gap: 20px;
     padding: 10px;
     justify-items: center;
-    max-width: 100%; /* Keeps the grid from stretching too wide */
-    margin: 0 auto; /* Centers the grid on the page */
+    max-width: 100%; 
+    margin: 0 auto; 
 }
 
-/* Ensure cards remain responsive */
 @media (max-width: 600px) {
     #projects-container {
         grid-template-columns: 1fr; /* 1 column on smaller screens */
@@ -807,7 +805,7 @@ pre, code {
 }
 
 project-card h2 {
-    font-size: clamp(3rem, 4vw, 6rem); /* Minimum 3rem, scales with viewport, max 6rem */
+    font-size: clamp(3rem, 4vw, 6rem); 
     font-weight: bold;
     margin: 10px 0;
     color: var(--primary-color);
@@ -1075,7 +1073,7 @@ dialog button:hover {
     transform: scale(1.05);
 }
 
-/* Keep bio and non-tech stack text at a comfortable size on all screens */
+/* Keep bio and non-tech stack text at a reasonable size on all screens */
 .bio p, 
 .non-tech-stack p {
     font-size: 1.5rem;
@@ -1084,7 +1082,7 @@ dialog button:hover {
     text-align: center;
 }
 
-/* Tables - improve overflow handling (per your example) */
+/* Tables - improve overflow handling */
 main table {
     width: 100%;
     overflow-x: auto;  
@@ -1188,12 +1186,6 @@ table caption, blockquote {
         max-width: 200px;
     }
 }
-
-
-
-
-
-
 
 
 /* DEBUG

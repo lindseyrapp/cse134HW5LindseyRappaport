@@ -19,28 +19,37 @@
     </noscript>
   </nav>
   <hr>
+
   <h1>Projects</h1>
+
+  <!-- Buttons for loading data -->
+  <section>
+    <button id="load-local">Load Local</button>
+    <button id="load-remote">Load Remote</button>
+  </section>
+
   <section>
     <search>
       <label for="project-search">Search for a project:</label>
       <input type="search" id="project-search" name="search" placeholder="Type project name..." aria-label="Search projects">
     </search>
   </section>
+
   <section>
     <h2>Featured Projects:</h2>
     <hr>
     <div id="projects-container"></div>
   </section>
 
-  <!-- Global Fullscreen Modal for Viewing Images (hidden by inline style) -->
+  <!-- Global Fullscreen Modal for Viewing Images -->
   <div id="fullscreen-modal" class="fullscreen-modal" style="display:none;">
     <span id="modal-close">&times;</span>
     <img id="modal-image" class="modal-content">
   </div>
-  
+
   <script src="theme.js"></script>
   <script>
-    // Bind the close event for the global modal
+    // Close event for the modal
     document.getElementById("modal-close").addEventListener("click", () => {
       document.getElementById("fullscreen-modal").style.display = "none";
     });
