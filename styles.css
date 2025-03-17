@@ -793,7 +793,7 @@ pre, code {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Ensures 2 columns when space allows */
     gap: 20px;
-    padding: 20px;
+    padding: 10px;
     justify-items: center;
     max-width: 900px; /* Keeps the grid from stretching too wide */
     margin: 0 auto; /* Centers the grid on the page */
