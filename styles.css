@@ -1056,6 +1056,8 @@ dialog button:hover {
     color: var(--accent-color);   
 }
 
+
+
 /* Style for the Close button inside the Terms & Conditions dialog */
 #terms-dialog button {
     font-size: 1.4rem;
@@ -1186,6 +1188,8 @@ table caption, blockquote {
         max-width: 200px;
     }
 }
+
+
 
 
 

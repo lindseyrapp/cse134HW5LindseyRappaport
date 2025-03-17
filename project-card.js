@@ -99,31 +99,53 @@ class ProjectCard extends HTMLElement {
                     text-align: center;
                     flex: 1; /* Make buttons equal width */
                 }
+
                 .github-link {
                     background-color: var(--primary-color);
-                    color: white;
+                    color: white !important;
+                    font-weight: bold;
+                    padding: 12px 24px;
+                    border-radius: 5px;
+                    display: inline-block;
+                    text-align: center;
+                    transition: background-color 0.3s ease, transform 0.2s ease;
+                    text-decoration: none;
                 }
+
+                /* Light mode hover */
                 .github-link:hover {
-                    background-color: #1a5276;
+                    background-color: #1a5276; /* Light mode GitHub hover */
                     transform: scale(1.05);
+                    color: white !important;
                 }
+
+                /* Read More Button */
                 .read-more {
                     background-color: var(--accent-color);
                     color: white;
                 }
                 .read-more:hover {
-                    background-color: #135f92;
+                    background-color: #135f92; /* Light mode Read More hover */
                     transform: scale(1.05);
                 }
 
-                /* Night mode fixes */
-                [data-theme="dark"] .github-link {
-                    background-color: var(--accent-color);
-                    color: black;
+                /* Dark mode fixes */
+                :host-context([data-theme="dark"]) .github-link {
+                    background-color: var(--accent-color) !important;
+                    color: white !important;
                 }
-                [data-theme="dark"] .github-link:hover {
-                    background-color: #3a98c5;
+
+                /* Dark mode - make GitHub hover match Read More */
+                :host-context([data-theme="dark"]) .github-link:hover {
+                    background-color: #135f92 !important; /* Same hover as Read More */
+                    color: white !important;
                 }
+
+                :host-context([data-theme="dark"]) .read-more:hover {
+                    background-color: #135f92 !important; /* Ensures Read More matches */
+                    color: white !important;
+                }
+
             </style>
             <div class="card">
                 <h2></h2>
