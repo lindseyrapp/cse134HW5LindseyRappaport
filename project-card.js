@@ -7,7 +7,7 @@ class ProjectCard extends HTMLElement {
                 :host {
                     display: block;
                     width: 100%;
-                    max-width: 600px;
+                    max-width: 800px;
                     margin: 10px auto;
                     border-radius: 10px;
                     overflow: hidden;
@@ -35,7 +35,7 @@ class ProjectCard extends HTMLElement {
                     
                 @media (min-width: 1200px) {
                     :host {
-                        max-width: 800px; /* Even wider on larger screens */
+                        max-width: 900px; /* Even wider on larger screens */
                     }
                 }
                 h2 {
