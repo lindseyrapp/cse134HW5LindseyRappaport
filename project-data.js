@@ -138,10 +138,5 @@ document.addEventListener("DOMContentLoaded", async () => {
     searchInput.addEventListener("input", updateSearchResults);
     document.addEventListener("click", hideSearchResults);
 
-    // Auto-load remote projects if local storage is empty
-    if (fetchLocalProjects().length === 0) {
-        await loadProjects("remote");
-    } else {
-        loadProjects("local");
-    }
+    
 });
