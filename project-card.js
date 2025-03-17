@@ -84,6 +84,7 @@ class ProjectCard extends HTMLElement {
                     background-color: var(--accent-color);
                     text-decoration: none;
                     font-weight: bold;
+                    font-size: 1.5rem;
                     border-radius: 5px;
                     transition: background-color 0.3s ease;
                     cursor: pointer;
@@ -92,6 +93,7 @@ class ProjectCard extends HTMLElement {
                 a:hover {
                     background-color: var(--primary-color);
                 }
+
             </style>
             <div class="card">
                 <h2></h2>
